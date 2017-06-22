@@ -1,0 +1,35 @@
+<template name="register">
+  <div class="container-fluid pt-5">
+    {{>facebooklogin title="Register" buttonTitle="Register with Facebook"}}
+    <form id="register-form">
+      <div class="input-group justify-content-center pt-0">
+        <span class="input-group-addon text-purple"><i class="fa fa-user" aria-hidden="true"></i></span>
+        <input type="text" class="form-control no-border" id="nameInput" placeholder="Full Name" ref="name"/>
+      </div>
+      <div class="input-group justify-content-center pt-2">
+        <span class="input-group-addon text-purple" id="email-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+        <input type="email" class="form-control no-border"  id="emailInput" aria-describedby="email-addon" placeholder="Email" ref="email"/>
+      </div>
+      <div class="input-group justify-content-center pt-2">
+        <span class="input-group-addon text-purple" id="password-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        <input type="password" class="form-control no-border" id="passwordInput" aria-describedby="password-addon" placeholder="Password" ref="password"/>
+      </div>
+      <div class="input-group justify-content-center pt-2">
+        <span class="input-group-addon text-purple" id="confirmPassword-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        <input type="password" class="form-control no-border" id="confirmPasswordInput" aria-describedby="confirmPassword-addon" placeholder="Confirm Password" ref="confirmPassword"/>
+      </div>
+      <section class="section pt-5">
+        <div class="form-group sign-in-button">
+          <button type="submit" class="btn" id="login-btn">
+            <i class="fa fa-user-plus text-white"></i>&nbsp;
+            Create Account
+          </button>
+        </div>
+        <figcaption class="figure-caption text-center">
+          Already have an account? <a href="/signin" class="text-primary">Sign in.</a>
+        </figcaption>
+      </section>
+    </form>
+    {{>footer}}
+  </div>
+</template>

@@ -1,0 +1,32 @@
+<template name="signin">
+  <div class="container-fluid pt-5" id="logincontainer">
+    {{>facebooklogin title="Sign In" buttonTitle="Sign in with Facebook"}}
+    <form id="signin-form">
+      <div class="input-group pt-3 justify-content-center">
+        <span class="input-group-addon text-purple" id="email-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+        <input type="email" class="form-control no-border"  id="emailInput" aria-describedby="email-addon" placeholder="Email"/>
+      </div>
+      <div class="input-group pt-3 justify-content-center">
+        <span class="input-group-addon text-purple" id="password-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        <input type="password" class="form-control no-border" id="passwordInput" aria-describedby="password-addon" placeholder="Password" ref="passwordField"/>
+      </div>
+      <br/>
+      <br/>
+      <section class="section" id="section">
+        <div class="form-group sign-in-button justify-content-center">
+          <button type="submit" class="btn" id="login-btn">
+            <i class="fa fa-sign-in text-white"></i>&nbsp;
+            Sign In
+          </button>
+        </div>
+        <figcaption class="figure-caption text-center mb-2">
+          Forgot your login details? <a href="#" class="text-primary">Help me sign in.</a>
+        </figcaption>
+        <figcaption class="figure-caption text-center">
+          Don't have an account?<a href="/register" class="text-primary"> Register. </a>
+        </figcaption>
+      </section>
+    </form>
+    {{>footer}}
+  </div>
+</template>

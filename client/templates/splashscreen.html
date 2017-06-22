@@ -1,0 +1,31 @@
+<template name="splashscreen">
+  <div class="container-fluid pt-5 d-flex align-items-center justify-content-start" id="splash">
+    <div id="splash-icon" class="fixed-top">
+      <img src="/images/logo-3.png" width="35px" height="45px" alt="logo"/>
+    </div>
+
+    <div id="welcome" class="w-100 text-center text-white">
+      <h2 class="text-white pb-1">Welcome to</h2>
+      <h2 class="text-white hungry">hungry</h2><h1 class="text-white hungry">@NYUAD</h1>
+      <figcaption class="figure-caption text-white text-center pt-1" id="slogan">Ordering from campus made easy.</figcaption>
+    </div>
+    <section class="section pt-5 fixed-bottom">
+      <div class="form-group row sign-in-button justify-content-center">
+        <div class="col-xs-9 offset-xs-1">
+          <a class="btn" id="login-btn-splash" href="/register">
+            <i class="fa fa-user-plus text-purple" aria-hidden="true"></i>
+            &nbsp;Register
+          </a>
+        </div>
+      </div>
+      <div class="form-group row sign-in-button justify-content-center">
+        <div class="col-xs-9 offset-xs-1">
+          <a class="btn" id="login-btn" href="/signin">
+            <i class="fa fa-sign-in text-white" aria-hidden="true"></i>
+            &nbsp;Sign In
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
