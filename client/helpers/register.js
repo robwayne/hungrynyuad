@@ -1,3 +1,6 @@
+import { Template } from 'meteor/templating'
+import { Meteor } from 'meteor/meteor';
+
 Template.register.events({
   'submit #register-form'(event){
     event.preventDefault();
@@ -22,7 +25,7 @@ Template.register.events({
         name: accountDetails.name
       }, err => {
         if(err){
-          message = err.reason || "Unknown error";
+          message = err.reason || "Unknown error occured";
           thisTmp.setState({
             errors: [message]
           });

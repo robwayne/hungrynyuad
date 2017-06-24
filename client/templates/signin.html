@@ -3,13 +3,16 @@
     {{>facebooklogin title="Sign In" buttonTitle="Sign in with Facebook"}}
     <form id="signin-form">
       <div class="input-group pt-3 justify-content-center">
-        <span class="input-group-addon text-purple" id="email-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-        <input type="email" class="form-control no-border"  id="emailInput" aria-describedby="email-addon" placeholder="Email"/>
+        <span class="input-group-addon text-purple" id="email-addon" ><i class="fa fa-envelope" aria-hidden="true"></i></span>
+        <input type="email" class="form-control no-border "  id="emailInput" aria-describedby="email-addon" placeholder="Email" data-onblur data-email data-msg="Enter a valid email."/>
+        <span class="err-msg"></span>
       </div>
-      <div class="input-group pt-3 justify-content-center">
-        <span class="input-group-addon text-purple" id="password-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-        <input type="password" class="form-control no-border" id="passwordInput" aria-describedby="password-addon" placeholder="Password" ref="passwordField"/>
+      <div class="input-group pt-3 justify-content-center pb-3">
+        <span class="input-group-addon text-purple" id="password-addon" ><i class="fa fa-lock" aria-hidden="true"></i></span>
+        <input type="password" class="form-control no-border " id="passwordInput" aria-describedby="password-addon" placeholder="Password" data-onblur data-required data-min=7 />
+        <span class="err-msg"></span>
       </div>
+
       <br/>
       <br/>
       <section class="section" id="section">

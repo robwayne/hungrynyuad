@@ -1,54 +1,72 @@
 import { Meteor } from 'meteor/meteor';
-import { loginSchema, getErrorMessage } from '/client/helpers/schemas/userAccountsSchema';
+import { Template } from 'meteor/templating';
+import { ReactiveDict } from 'meteor/reactive-dict';
+import { loginSchema, getErrorMessage } from '/client/helpers/schemas/userAccountsSchema.js';
+
+
+Template.signin.onCreated(function signinOnCreated(){
+  this.state = new ReactiveDict();
+});
 
 Template.signin.events({
-  'submit #signin-form'(event){
+  'submit #signin-form'(event, template){
     event.preventDefault();
-    //retrieve info from input fields
+    //retrieve info from input field
     const email = $('#emailInput').val().trim();
     const password = $('#passwordInput').val().trim();
-    const thisTmp = this;
 
     loginDetails = {
       email: email,
       password: password
-    }
-    console.log(this);
+    };
+    console.log(loginDetails);
+
     let message = "";
+    let errorMessages = {};
     try {
       loginSchema.validate(loginDetails);
       Meteor.loginWithPassword(email, password, function (err) {
         if(err){
-          message = err.reason || "Unknown error";
-          thisTmp.setState({
-            errors: [message]
-          });
-          ReactDOM.findDOMNode(thisTmp.refs.passwordField).value = '';
+          message = err.reason || "Unknown login error occurred";
+          errorMessages = {
+            "login": message
+          };
+          // template.state.set({
+          //   errors: errorMessages
+          // });
+          $('#passwordInput').val('');
         }
         else {
-          message = "Login Successful."
-          thisTmp.setState({
-            successes: [message],
-            errors: []
-          });
+          message = "Login Successful.";
+          console.log(message);
+          // thisTmp.state.set({
+          //   successes: [message],
+          //   errors: []
+          // });
           Meteor.setTimeout(function () {
             FlowRouter.go('/');
-          }, 1000*3);
-
+          }, 1000*2);
         }
       });
     }
     catch (error){
-      const errorMessages = [];
       error.details.forEach((e)=> {
         message = getErrorMessage(e);
         if(message !== "")
-          errorMessages.push(message);
+          errorMessages[e.name] = message;
       });
-      this.setState({
-        errors: errorMessages
-      });
+      // template.state.set({
+      //   errors: errorMessages
+      // });
+      console.log(template.state.get('errors'));
       $('#passwordInput').val('');
     }
+  }
+});
+
+Template.signin.helpers({
+  hasErrors(){
+    const template = Template.instance();
+    return template.state.get("errors");
   }
 });

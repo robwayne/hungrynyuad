@@ -10,7 +10,11 @@
   display:none;
 }
 
-#login-buttons .login-button, .accounts-dialog .login-button, #login-btn, #login-btn-splash {
+a#login-btn,  a#login-btn:hover {
+    border: 1px solid #fff;
+}
+
+#login-buttons .login-button, .accounts-dialog .login-button, #login-btn, #register-btn {
    color:#FFF;
    background:#58108e;
    line-height:1.25;
@@ -34,7 +38,7 @@
 }
 
 
-#login-btn, .login-button, #login-btn-splash{
+#login-btn, .login-button, #register-btn{
   width:225px;
   max-width:225px;
   height:30px;
@@ -45,7 +49,7 @@
   margin:0 auto;
 }
 
-#login-btn-splash, #login-btn-splah:hover {
+#register-btn, #register-btn:hover {
   color:#58108e;
   background: #FFF;
 }
