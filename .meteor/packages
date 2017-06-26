@@ -26,10 +26,10 @@ less
 kadira:flow-router
 kadira:blaze-layout
 fortawesome:fontawesome
-aldeed:simple-schema
 meteortoys:allthings
 spanier:bootstrap
 coursierprive:tether
 reactive-dict
 accounts-password
 accounts-facebook
+aldeed:simple-schema

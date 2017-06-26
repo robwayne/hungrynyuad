@@ -145,6 +145,13 @@ h2.hungry, p.hungry{
   color: #d9534f;
 }
 
+.error-message {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.78em;
+    color: #d9534f;
+}
+
 .form-control.input-error {
   border-bottom:1px solid #d9534f !important;
   -webkit-transition:border-bottom 0.2s ease-out;
@@ -160,10 +167,6 @@ h2.hungry, p.hungry{
 
 #section{
   padding-bottom:40px;
-}
-
-.error-message{
-  font-size:0.82rem;
 }
 
 .button-purple, .button-purple:hover{

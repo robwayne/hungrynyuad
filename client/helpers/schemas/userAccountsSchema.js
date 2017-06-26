@@ -11,11 +11,11 @@ loginSchema = new SimpleSchema({
     label: "Email",
     regEx:SimpleSchema.RegEx.Email,
   },
- password:{
-   type: String,
-   label: "Password",
-   min: 7
- }
+  loginPassword:{
+    type: String,
+    label: "Password",
+    min:1
+  }
 });
 
 signUpAccountSchema = new SimpleSchema({
@@ -48,7 +48,9 @@ signUpAccountSchema = new SimpleSchema({
 
 const getErrorMessage = (error) => {
   let message = "";
-  if(error.name === "password" && error.type === "minString"){
+  if(error.name === "loginPassword" && error.type === "minString"){
+    message = "Password is required.";
+  }else if(error.name === "password" && error.type === "minString"){
     message = "Password is too short, password has to be at least 7 characters.";
   }
   else if(error.name === "confirmPassword" && error.type === "passwordMismatch") {
