@@ -1,5 +1,11 @@
 import { Template } from 'meteor/templating'
 import { Meteor } from 'meteor/meteor';
+import { ReactiveDict } from 'meteor/reactive-dict';
+import {getErrorMessage, registerAccountSchema } from '/client/helpers/schemas/userAccountsSchema.js';
+
+Template.register.onCreated(function registerOnCreated(){
+  this.state = new ReactiveDict();
+});
 
 Template.register.events({
   'submit #register-form'(event){
@@ -8,7 +14,6 @@ Template.register.events({
     const email = $('#emailInput').val().trim();
     const password = $('#passwordInput').val().trim();
     const confirmPassword = $('#confirmPasswordInput').val().trim();
-    const thisTmp = this;
 
     accountDetails = {
       name: name,
@@ -27,19 +32,14 @@ Template.register.events({
         if(err){
           message = err.reason || "Unknown error occured";
           thisTmp.setState({
-            errors: [message]
+            "errors": [message]
           });
-          ReactDOM.findDOMNode(thisTmp.refs.password).value = '';
-          ReactDOM.findDOMNode(thisTmp.refs.confirmPassword).value = '';
+          $('#passwordInput').val('');
+          $('#confirmPasswordInput').val('');
         }
         else {
           message = "Account Created Successfully.";
-          thisTmp.setState({
-            successes: [message]
-          })
-          Meteor.setTimeout(function () {
-            FlowRouter.go('/');
-          }, 1000*2);
+          FlowRouter.go('/home');
         }
       }); //Close Accounts.createUser();
     }
@@ -50,11 +50,11 @@ Template.register.events({
         if(message !== "")
           errorMessages.push(message);
       });
-      this.setState({
+      this.state.set(
         errors: errorMessages
-      });
-      ReactDOM.findDOMNode(thisTmp.refs.password).value = '';
-      ReactDOM.findDOMNode(thisTmp.refs.confirmPassword).value = '';
+      );
+      $('#passwordInput').val('');
+      $('#confirmPasswordInput').val('');
     }
   }
 });

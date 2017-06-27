@@ -18,7 +18,7 @@ loginSchema = new SimpleSchema({
   }
 });
 
-signUpAccountSchema = new SimpleSchema({
+registerAccountSchema = new SimpleSchema({
   name: {
     type: String,
     label: "Name",
@@ -66,4 +66,4 @@ const getErrorMessage = (error) => {
 
 export { getErrorMessage };
 export { loginSchema };
-export { signUpAccountSchema };
+export { registerAccountSchema };

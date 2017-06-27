@@ -37,20 +37,16 @@ Template.signin.events({
         if(err){
           message = err.reason || "Unknown login error occurred";
           template.state.set({
-            'loginError':message
+            'signingInError':message
           });
           $('#passwordInput').val('');
         }
         else {
           message = "Login Successful.";
           console.log(message);
-          // thisTmp.state.set({
-          //   successes: [message],
-          //   errors: []
-          // });
           Meteor.setTimeout(function () {
-            FlowRouter.go('/');
-          }, 1000*2);
+            FlowRouter.go('/home');
+          }, 1000);
         }
       });
     }
@@ -70,34 +66,5 @@ Template.signin.events({
       });
       $('#passwordInput').val('');
     }
-  }
-});
-
-Template.signin.helpers({
-  fieldHasErrors(field){
-    field = field.toLowerCase();
-    if (field === null)return false;
-    const template = Template.instance();
-    if(template.state.get("emailError") && field === "email"){
-      return true;
-    } else if (template.state.get("loginPasswordError") && field === "password"){
-      return true;
-    } else if (template.state.get("loginError") && field === "login"){
-      return true;
-    }
-    return false;
-  },
-
-  fieldErrorMessage(field){
-    const template = Template.instance();
-    field = field.toLowerCase();
-    if(field.toLowerCase() === "email"){
-      return template.state.get("emailError");
-    } else if(field.toLowerCase() === "password"){
-      return template.state.get("loginPasswordError");
-    } else if(field.toLowerCase() === "login") {
-      return template.state.get("loginError");
-    }
-    return;
   }
 });

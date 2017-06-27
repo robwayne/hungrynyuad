@@ -1,33 +1,22 @@
 <template name="signin">
   <div class="container-fluid pt-5" id="logincontainer">
     {{>facebooklogin title="Sign In" buttonTitle="Sign in with Facebook"}}
-    {{#if fieldHasErrors "login"}}
-      <div id="email-feedback" class="w-100">
-        <p class="text-center error-message">{{fieldErrorMessage "login"}}</p>
-      </div>
-    {{/if}}
+
+    {{{ renderErrorHtml "signingIn"}}}
     <form id="signin-form">
       <div class="form-group">
         <div class="input-group pt-3 justify-content-center">
           <span class="input-group-addon {{#if fieldHasErrors "email"}} input-error {{else}} text-purple {{/if}}" id="email-addon" ><i class="fa fa-envelope" aria-hidden="true"></i></span>
           <input type="email" class="form-control no-border {{#if fieldHasErrors "email"}} input-error {{/if}}"  id="emailInput" aria-describedby="email-addon" placeholder="Email"/>
         </div>
-        {{#if fieldHasErrors "email"}}
-          <div id="email-feedback" class="w-100">
-            <p class="text-center error-message">{{fieldErrorMessage "email"}}</p>
-          </div>
-        {{/if}}
+        {{{renderErrorHtml "email"}}}
       </div>
       <div class="form-group">
         <div class="input-group pt-3 justify-content-center">
-          <span class="input-group-addon {{#if fieldHasErrors "password"}} input-error {{else}} text-purple {{/if}}" id="password-addon" ><i class="fa fa-lock" aria-hidden="true"></i></span>
-          <input type="password" class="form-control no-border {{#if fieldHasErrors "password"}} input-error {{/if}}" id="passwordInput" aria-describedby="password-addon" placeholder="Password" />
+          <span class="input-group-addon {{#if fieldHasErrors "loginPassword"}} input-error {{else}} text-purple {{/if}}" id="password-addon" ><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type="password" class="form-control no-border {{#if fieldHasErrors "loginPassword"}} input-error {{/if}}" id="passwordInput" aria-describedby="password-addon" placeholder="Password" />
         </div>
-        {{#if fieldHasErrors "password"}}
-          <div id="email-feedback" class="w-100">
-            <p class="text-center error-message">{{fieldErrorMessage "password"}}</p>
-          </div>
-        {{/if}}
+        {{{ renderErrorHtml "loginPassword"}}}
       </div>
       <br/>
       <br/>
