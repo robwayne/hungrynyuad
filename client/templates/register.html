@@ -1,24 +1,38 @@
 <template name="register">
   <div class="container-fluid pt-5">
     {{>facebooklogin title="Register" buttonTitle="Register with Facebook"}}
+    {{{renderHtml "error" "auth"}}}
+    {{{renderHtml "success" "auth"}}}
     <form id="register-form">
-      <div class="input-group justify-content-center pt-0">
-        <span class="input-group-addon text-purple"><i class="fa fa-user" aria-hidden="true"></i></span>
-        <input type="text" class="form-control no-border" id="nameInput" placeholder="Full Name" ref="name"/>
+      <div class="form-group">
+        <div class="input-group justify-content-center pt-0">
+          <span class="input-group-addon {{#if fieldHasErrors "name"}} input-error {{else}} text-purple {{/if}}"><i class="fa fa-user" aria-hidden="true"></i></span>
+          <input type="text" class="form-control no-border {{#if fieldHasErrors "name"}} input-error {{/if}}" id="nameInput" placeholder="Full Name" ref="name"/>
+        </div>
+        {{{renderHtml "error" "name"}}}
       </div>
-      <div class="input-group justify-content-center pt-2">
-        <span class="input-group-addon text-purple" id="email-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-        <input type="email" class="form-control no-border"  id="emailInput" aria-describedby="email-addon" placeholder="Email" ref="email"/>
+      <div class="form-group">
+        <div class="input-group justify-content-center pt-1">
+          <span class="input-group-addon {{#if fieldHasErrors "email"}} input-error {{else}} text-purple {{/if}}" id="email-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          <input type="email" class="form-control no-border {{#if fieldHasErrors "email"}} input-error {{/if}}"  id="emailInput" aria-describedby="email-addon" placeholder="Email" ref="email"/>
+        </div>
+        {{{renderHtml "error" "email"}}}
       </div>
-      <div class="input-group justify-content-center pt-2">
-        <span class="input-group-addon text-purple" id="password-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-        <input type="password" class="form-control no-border" id="passwordInput" aria-describedby="password-addon" placeholder="Password (Minimum 7 characters)" ref="password"/>
+      <div class="form-group">
+        <div class="input-group justify-content-center pt-1">
+          <span class="input-group-addon {{#if fieldHasErrors "password"}} input-error {{else}} text-purple {{/if}}" id="password-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type="password" class="form-control no-border {{#if fieldHasErrors "password"}} input-error {{/if}}" id="passwordInput" aria-describedby="password-addon" placeholder="Password (Minimum 7 characters)" ref="password"/>
+        </div>
+        {{{renderHtml "error" "password"}}}
       </div>
-      <div class="input-group justify-content-center pt-2">
-        <span class="input-group-addon text-purple" id="confirmPassword-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-        <input type="password" class="form-control no-border" id="confirmPasswordInput" aria-describedby="confirmPassword-addon" placeholder="Confirm Password" ref="confirmPassword"/>
+      <div class="form-group">
+        <div class="input-group justify-content-center pt-1">
+          <span class="input-group-addon {{#if fieldHasErrors "confirmPassword"}} input-error {{else}} text-purple {{/if}}" id="confirmPassword-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type="password" class="form-control no-border {{#if fieldHasErrors "confirmPassword"}} input-error {{/if}}" id="confirmPasswordInput" aria-describedby="confirmPassword-addon" placeholder="Confirm Password" ref="confirmPassword"/>
+        </div>
+        {{{renderHtml "error" "confirmPassword"}}}
       </div>
-      <section class="section pt-5">
+      <section class="section pt-3">
         <div class="form-group sign-in-button">
           <button type="submit" class="btn" id="login-btn">
             <i class="fa fa-user-plus text-white"></i>&nbsp;

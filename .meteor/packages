@@ -32,4 +32,9 @@ coursierprive:tether
 reactive-dict
 accounts-password
 accounts-facebook
+facebook-config-ui@1.0.0
+accounts-ui
 aldeed:simple-schema
+service-configuration
+session
+arillo:flow-router-helpers

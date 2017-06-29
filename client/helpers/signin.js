@@ -2,12 +2,17 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Tracker } from 'meteor/tracker';
+import { Session } from 'meteor/session';
 import { loginSchema, getErrorMessage } from '/client/helpers/schemas/userAccountsSchema.js';
 
 
 Template.signin.onCreated(function signinOnCreated(){
   this.state = new ReactiveDict();
 });
+
+// Template.signin.onDestroyed(function signinOnDestroyed(){
+//   Session.keys = {};
+// });
 
 Template.signin.events({
   'submit #signin-form'(event, template){
@@ -19,12 +24,9 @@ Template.signin.events({
     let message = "";
     let errorMessages = {};
     let errorName = "";
-    //Clear Errors Dict if already populated - shows only field with errors
-    if(template.state.get("emailError") || template.state.get("loginPasswordError") || template.state.get("loginError")){
-      template.state.set("emailError", null);
-      template.state.set("loginPasswordError", null);
-      template.state.set("loginError", null);
-    }
+    //Clear state Dict if already populated
+    template.state.clear();
+
 
     const loginDetails = {
       email: email,
@@ -36,14 +38,12 @@ Template.signin.events({
       Meteor.loginWithPassword(email, password, function (err) {
         if(err){
           message = err.reason || "Unknown login error occurred";
-          template.state.set({
-            'signingInError':message
-          });
+          Session.set('authError', message);
           $('#passwordInput').val('');
         }
         else {
           message = "Login Successful.";
-          console.log(message);
+          Session.set("authSuccess", message);
           Meteor.setTimeout(function () {
             FlowRouter.go('/home');
           }, 1000);
@@ -66,5 +66,7 @@ Template.signin.events({
       });
       $('#passwordInput').val('');
     }
+    Session.keys = {};
+    console.log('end');
   }
 });
