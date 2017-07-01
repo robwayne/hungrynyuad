@@ -17,19 +17,19 @@
     <!-- Bottom navigation bar for small mobile devices -->
     <div class="row fixed-bottom bg-purple align-items-center visible-xs text-white" id="nav-xs-footer">
       <div class="col-xs-3 visible-xs-block h-100">
-        <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isCurrentRoute 'Home'}} active-button{{else}} button-purple {{/if}}" id="btn-home">
+        <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isActiveRoute name='Home'}} active-button{{else}} button-purple {{/if}}" id="btn-home">
           <i aria-hidden="true" class="fa fa-home md-icon"></i>
           <p class="text-under-button">Home</p>
         </button>
       </div>
       <div class="col-xs-6 visible-xs-block h-100">
-        <button type="button" class="btn text-center border-0 w-100 h-100 {{#if isCurrentRoute 'Trending Orders'}} active-button{{else}} button-purple {{/if}}" id="btn-trending">
+        <button type="button" class="btn text-center border-0 w-100 h-100 {{#if isActiveRoute name='Trending Orders'}} active-button{{else}} button-purple {{/if}}" id="btn-trending">
           <i aria-hidden="true" class="fa fa-bolt md-icon"></i>
           <p class="text-under-button">Trending</p>
         </button>
       </div>
       <div class="col-xs-3 visible-xs-block h-100">
-        <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isCurrentRoute 'Closing Orders'}} active-button {{else}} button-purple {{/if}}" id="btn-closing">
+        <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isActiveRoute name='Closing Orders'}} active-button {{else}} button-purple {{/if}}" id="btn-closing">
           <i aria-hidden="true" class="fa fa-clock-o md-icon"></i>
           <p class="text-under-button">Closing</p>
         </button>
@@ -45,21 +45,21 @@
 
       </div>
       <div class="col-sm-5 col-lg-3 visible-sm-block visible-md-block visible-lg-block navbar-toggleable-sm">
-        <ul class="nav navbar-nav w-100 nav-fill">
+        <ul class="navbar-nav w-100 nav-fill">
           <li class="nav-item">
-            <a href="/home" class="nav-link active">
+            <a href="{{pathFor 'Home'}}" class="nav-link {{#if isActiveRoute name='Home'}} active {{/if}}">
               <i aria-hidden="true" class="fa fa-home md-icon"></i>&nbsp;
               Home
             </a>
           </li>
           <li class="nav-item">
-            <a href="/trending" class="nav-link">
+            <a href="{{pathFor 'Trending Orders'}}" class="nav-link {{#if isActiveRoute name='Trending Orders'}} active {{/if}}">
               <i aria-hidden="true" class="fa fa-bolt md-icon"></i>&nbsp;
               Trending
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{pathFor 'closing'}}" class="nav-link">
+            <a href="{{pathFor 'Closing Orders'}}" class="nav-link {{#if isActiveRoute name='Closing Orders'}} active {{/if}}">
               <i aria-hidden="true" class="fa fa-clock-o md-icon"></i>&nbsp;
               Closing
             </a>

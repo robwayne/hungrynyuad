@@ -39,14 +39,3 @@ Template.registerHelper('renderHtml', (type, field) => {
   }
   return html;
 });
-
-
-Template.registerHelper('isCurrentRoute', route => {
-  console.log(route);
-  if(ActiveRoute.name(route)){
-    console.log(true);
-    return true;
-  }
-  console.log(false);
-  return false;
-});
