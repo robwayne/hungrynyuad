@@ -23,6 +23,10 @@ p{
   text-align: justify;
 }
 
+.test{
+  background:#fff;
+}
+
 .title{
   font-family:'Open Sans', sans-serif;
   font-weight:400;
@@ -42,6 +46,10 @@ p{
 #header-container{
   padding-left:0px;
   padding-right:0px;
+}
+
+body{
+  margin-top:60px !important;
 }
 
 body, html, #__blaze-root{
@@ -145,6 +153,13 @@ h2.hungry, p.hungry{
   color: #d9534f;
 }
 
+.error-message {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.78em;
+    color: #d9534f;
+}
+
 .form-control.input-error {
   border-bottom:1px solid #d9534f !important;
   -webkit-transition:border-bottom 0.2s ease-out;
@@ -160,10 +175,6 @@ h2.hungry, p.hungry{
 
 #section{
   padding-bottom:40px;
-}
-
-.error-message{
-  font-size:0.82rem;
 }
 
 .button-purple, .button-purple:hover{
@@ -185,9 +196,7 @@ h2.hungry, p.hungry{
     text-align:center;
 }
 
-.active-button {
-    color: #58108e;
-    background: #fff;
-    border: none;
-    border-radius: 0;
+p.text-center.feedback-message {
+    font-size: 1em;
+    font-family: 'Helvetica Neue', sans-serif;
 }

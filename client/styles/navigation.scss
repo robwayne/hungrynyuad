@@ -36,7 +36,7 @@ a.nav-link {
     font-family: 'Helvetica Neue', sans-serif;
     height:87%;
     font-weight:500;
-    transition: border-bottom 0.5s ease-out;
+    transition: border-bottom 0.2s ease-out;
 }
 
 a.nav-link.active, a.nav-link:hover, a.nav-link:focus{
@@ -83,4 +83,11 @@ a.nav-link.active, a.nav-link:hover, a.nav-link:focus{
 #searchInput:hover, #searchInput:focus{
     width:50%;
     background:white;
+}
+
+.active-button{
+    color: #58108e;
+    background: #fff;
+    border: none;
+    border-radius: 0;
 }

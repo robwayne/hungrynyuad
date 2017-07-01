@@ -1,12 +1,18 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { Tracker } from 'meteor/tracker';
+import { Session } from 'meteor/session';
 import { loginSchema, getErrorMessage } from '/client/helpers/schemas/userAccountsSchema.js';
 
 
 Template.signin.onCreated(function signinOnCreated(){
   this.state = new ReactiveDict();
 });
+
+// Template.signin.onDestroyed(function signinOnDestroyed(){
+//   Session.keys = {};
+// });
 
 Template.signin.events({
   'submit #signin-form'(event, template){
@@ -15,58 +21,52 @@ Template.signin.events({
     const email = $('#emailInput').val().trim();
     const password = $('#passwordInput').val().trim();
 
-    loginDetails = {
-      email: email,
-      password: password
-    };
-    console.log(loginDetails);
-
     let message = "";
     let errorMessages = {};
+    let errorName = "";
+    //Clear state Dict if already populated
+    template.state.clear();
+
+
+    const loginDetails = {
+      email: email,
+      loginPassword: password
+    };
+
     try {
       loginSchema.validate(loginDetails);
       Meteor.loginWithPassword(email, password, function (err) {
         if(err){
           message = err.reason || "Unknown login error occurred";
-          errorMessages = {
-            "login": message
-          };
-          // template.state.set({
-          //   errors: errorMessages
-          // });
+          Session.set('authError', message);
           $('#passwordInput').val('');
         }
         else {
           message = "Login Successful.";
-          console.log(message);
-          // thisTmp.state.set({
-          //   successes: [message],
-          //   errors: []
-          // });
+          Session.set("authSuccess", message);
           Meteor.setTimeout(function () {
-            FlowRouter.go('/');
-          }, 1000*2);
+            FlowRouter.go('/home');
+          }, 1000);
         }
       });
     }
     catch (error){
+      //for each error encountered - add to the reactiveDict - state along with appropriate error Message
       error.details.forEach((e)=> {
+        errorName = e.name+"Error";
         message = getErrorMessage(e);
-        if(message !== "")
-          errorMessages[e.name] = message;
+        if(email === "" && errorName === "emailError"){
+          message = "Email is required."
+        }
+        if(message !== "") {
+          template.state.set({
+            [errorName]:message
+          });
+        }
       });
-      // template.state.set({
-      //   errors: errorMessages
-      // });
-      console.log(template.state.get('errors'));
       $('#passwordInput').val('');
     }
-  }
-});
-
-Template.signin.helpers({
-  hasErrors(){
-    const template = Template.instance();
-    return template.state.get("errors");
+    Session.keys = {};
+    console.log('end');
   }
 });
