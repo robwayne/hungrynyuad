@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { Tracker } from 'meteor/tracker';
 
 Template.registerHelper('fieldHasErrors', (field) =>{
   const template = Template.instance();
@@ -37,4 +38,15 @@ Template.registerHelper('renderHtml', (type, field) => {
     }
   }
   return html;
+});
+
+
+Template.registerHelper('isCurrentRoute', route => {
+  console.log(route);
+  if(ActiveRoute.name(route)){
+    console.log(true);
+    return true;
+  }
+  console.log(false);
+  return false;
 });

@@ -38,3 +38,4 @@ aldeed:simple-schema
 service-configuration
 session
 arillo:flow-router-helpers
+zimme:active-route

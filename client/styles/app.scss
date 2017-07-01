@@ -23,6 +23,10 @@ p{
   text-align: justify;
 }
 
+.test{
+  background:#fff;
+}
+
 .title{
   font-family:'Open Sans', sans-serif;
   font-weight:400;
@@ -42,6 +46,10 @@ p{
 #header-container{
   padding-left:0px;
   padding-right:0px;
+}
+
+body{
+  margin-top:60px !important;
 }
 
 body, html, #__blaze-root{
@@ -186,13 +194,6 @@ h2.hungry, p.hungry{
     font-weight: 200;
     margin-top: 3px;
     text-align:center;
-}
-
-.active-button {
-    color: #58108e;
-    background: #fff;
-    border: none;
-    border-radius: 0;
 }
 
 p.text-center.feedback-message {

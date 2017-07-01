@@ -6,29 +6,29 @@
     <form id="register-form">
       <div class="form-group">
         <div class="input-group justify-content-center pt-0">
-          <span class="input-group-addon {{#if fieldHasErrors "name"}} input-error {{else}} text-purple {{/if}}"><i class="fa fa-user" aria-hidden="true"></i></span>
-          <input type="text" class="form-control no-border {{#if fieldHasErrors "name"}} input-error {{/if}}" id="nameInput" placeholder="Full Name" ref="name"/>
+          <span class="input-group-addon {{#if fieldHasErrors 'name'}} input-error {{else}} text-purple {{/if}}"><i class="fa fa-user" aria-hidden="true"></i></span>
+          <input type="text" class="form-control no-border {{#if fieldHasErrors 'name'}} input-error {{/if}}" id="nameInput" placeholder="Full Name" ref="name"/>
         </div>
         {{{renderHtml "error" "name"}}}
       </div>
       <div class="form-group">
         <div class="input-group justify-content-center pt-1">
-          <span class="input-group-addon {{#if fieldHasErrors "email"}} input-error {{else}} text-purple {{/if}}" id="email-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-          <input type="email" class="form-control no-border {{#if fieldHasErrors "email"}} input-error {{/if}}"  id="emailInput" aria-describedby="email-addon" placeholder="Email" ref="email"/>
+          <span class="input-group-addon {{#if fieldHasErrors 'email'}} input-error {{else}} text-purple {{/if}}" id="email-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          <input type="email" class="form-control no-border {{#if fieldHasErrors 'email'}} input-error {{/if}}"  id="emailInput" aria-describedby="email-addon" placeholder="Email" ref="email"/>
         </div>
         {{{renderHtml "error" "email"}}}
       </div>
       <div class="form-group">
         <div class="input-group justify-content-center pt-1">
-          <span class="input-group-addon {{#if fieldHasErrors "password"}} input-error {{else}} text-purple {{/if}}" id="password-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-          <input type="password" class="form-control no-border {{#if fieldHasErrors "password"}} input-error {{/if}}" id="passwordInput" aria-describedby="password-addon" placeholder="Password (Minimum 7 characters)" ref="password"/>
+          <span class="input-group-addon {{#if fieldHasErrors 'password'}} input-error {{else}} text-purple {{/if}}" id="password-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type="password" class="form-control no-border {{#if fieldHasErrors 'password'}} input-error {{/if}}" id="passwordInput" aria-describedby="password-addon" placeholder="Password (Minimum 7 characters)" ref="password"/>
         </div>
         {{{renderHtml "error" "password"}}}
       </div>
       <div class="form-group">
         <div class="input-group justify-content-center pt-1">
-          <span class="input-group-addon {{#if fieldHasErrors "confirmPassword"}} input-error {{else}} text-purple {{/if}}" id="confirmPassword-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-          <input type="password" class="form-control no-border {{#if fieldHasErrors "confirmPassword"}} input-error {{/if}}" id="confirmPasswordInput" aria-describedby="confirmPassword-addon" placeholder="Confirm Password" ref="confirmPassword"/>
+          <span class="input-group-addon {{#if fieldHasErrors 'confirmPassword'}} input-error {{else}} text-purple {{/if}}" id="confirmPassword-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          <input type="password" class="form-control no-border {{#if fieldHasErrors 'confirmPassword'}} input-error {{/if}}" id="confirmPasswordInput" aria-describedby="confirmPassword-addon" placeholder="Confirm Password" ref="confirmPassword"/>
         </div>
         {{{renderHtml "error" "confirmPassword"}}}
       </div>
