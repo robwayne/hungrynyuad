@@ -19,6 +19,7 @@ Template.register.events({
     const email = $('#emailInput').val().trim();
     const password = $('#passwordInput').val().trim();
     const confirmPassword = $('#confirmPasswordInput').val().trim();
+    console.log('pw: ',password, 'cpw: ', confirmPassword);
 
     accountDetails = {
       name: name,
@@ -51,7 +52,7 @@ Template.register.events({
           Session.set('authSuccess', message);
           Meteor.setTimeout(function(){
             FlowRouter.go('/home');
-          }, 1000*2);
+          }, 1000);
         }
       }); //Close Accounts.createUser();
     }
