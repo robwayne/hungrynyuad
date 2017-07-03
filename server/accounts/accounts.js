@@ -17,11 +17,11 @@ Accounts.onCreateUser((options, user) => {
       avatar_url: avatarUrl,
     };
   }
-  const favourites = {
-    restaurants:[],
-    orders:[]
+  const favorites = {
+    restaurant_ids:[],
+    order_ids:[]
   };
-  user.favourites = favourites;
+  user.favorites = favorites;
   user.account_profile = account_profile;
   return user;
 });

@@ -1,12 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-Template.navigation.helpers({
-  routeName(){
-    return FlowRouter.getRouteName();
-  }
-});
-
 Template.navigation.events({
   'click #btn-home'(event, template){
     event.preventDefault();

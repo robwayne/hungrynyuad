@@ -1,3 +1,6 @@
+import { Meteor } from 'meteor/meteor';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+
 FlowRouter.route('/signin', {
   action:function(){
     BlazeLayout.render('signin');
@@ -38,4 +41,30 @@ FlowRouter.route('/register', {
     BlazeLayout.render('register');
   },
   name: 'Register'
+});
+
+const settingsRoutes = FlowRouter.group({
+  prefix:'/settings',
+  name: 'Settings'
+});
+
+settingsRoutes.route('/', {
+  action(){
+    BlazeLayout.render('settingsLayout',{main:'settings'});
+  },
+  name:'Settings'
+});
+
+settingsRoutes.route('/profile', {
+  action(){
+    BlazeLayout.render('settingsLayout', {main:'profile'});
+  },
+  name:'Profile'
+});
+
+settingsRoutes.route('/favorites', {
+  action(){
+    BlazeLayout.render('settingsLayout', {main:'favorites'});
+  },
+  name:'Favorites'
 });
