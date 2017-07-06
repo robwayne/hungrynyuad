@@ -1,12 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-Template.navigation.helpers({
-  routeName(){
-    return FlowRouter.getRouteName();
-  }
-});
-
 Template.navigation.events({
   'click #btn-home'(event, template){
     event.preventDefault();
@@ -20,5 +14,12 @@ Template.navigation.events({
   'click #btn-closing'(event, template){
     event.preventDefault();
     FlowRouter.go('/closing');
+  },
+  'click #menu-xs-button'(event, template){
+    if(!slideoutInstance.isOpen()){
+      slideoutInstance.open();
+    }else {
+      slideoutInstance.close();
+    }
   }
-})
+});

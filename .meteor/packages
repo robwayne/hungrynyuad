@@ -36,3 +36,5 @@ service-configuration
 session
 arillo:flow-router-helpers
 zimme:active-route
+chriswessels:hammer
+patrickleet:slideout

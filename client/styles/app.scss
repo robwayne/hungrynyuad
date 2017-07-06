@@ -1,8 +1,11 @@
+
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|PT+Sans|Roboto+Condensed|Alegreya+Sans+SC:500|Alegreya+Sans:500');
 /*------------------------------USER STYLES------------------------------*/
-@import "./navigation.scss";
 @import "./login.scss";
+@import "./navigation.scss";
+@import "./settings.scss";
+@import "./slideout.scss";
 
 .CampaignItem {
   display: block;
@@ -19,9 +22,6 @@
 .md-icon {font-size: 1.4em;}
 
 
-p{
-  text-align: justify;
-}
 
 .test{
   background:#fff;
@@ -42,14 +42,23 @@ p{
   clear:both;
 }
 
-
 #header-container{
   padding-left:0px;
   padding-right:0px;
 }
 
-body{
-  margin-top:60px !important;
+#layout-container{
+  position: fixed;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+}
+
+div.content-container {
+    padding-top: 55px;
+    max-height:100%;
+    overflow-y:scroll;
 }
 
 body, html, #__blaze-root{
