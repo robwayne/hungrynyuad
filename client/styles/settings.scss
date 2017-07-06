@@ -1,0 +1,36 @@
+/* Author: Robert Gordon
+   Date: July 3, 2017
+*/
+
+.settings-container{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+}
+
+.settings-container-item{
+  width:100%;
+  background:inherit;
+  border-bottom:1px solid #d0d0d0;
+  height:45px;
+  padding:0;
+  margin:0;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.settings-container-item>p{
+  margin:0;
+}
+.settings-container-item:hover{
+  background:#f0f0f0;
+}
+
+.settings-container-item:last-child{
+  border-bottom:none !important;
+}
+
+.btn-logout{
+  height:30px;
+}

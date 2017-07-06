@@ -20,6 +20,7 @@ caching-compiler@1.1.9
 caching-html-compiler@1.1.2
 callback-hook@1.0.10
 check@1.2.5
+chriswessels:hammer@4.0.2
 coffeescript@1.0.17
 coursierprive:tether@1.1.1
 ddp@1.2.5
@@ -93,6 +94,7 @@ oauth@1.1.13
 oauth2@1.1.11
 observe-sequence@1.0.16
 ordered-dict@1.0.9
+patrickleet:slideout@0.1.10_2
 promise@0.8.9
 random@1.0.10
 rate-limit@1.0.8

@@ -1,79 +1,77 @@
 <template name="navigation">
-  <div class="container-fluid">
-    <div class="row fixed-top visible-xs-block text-white bg-purple align-items-center" id="nav-xs-header">
-      <!-- Top navigation bar for mobile tablets -->
-      <div class="col-xs-2 visible-xs-block h-100">
-        <button type="button" class="btn button-purple text-center border-0 w-100 h-100" id="menu-xs-button">
-          <i aria-hidden="true" class="fa fa-bars md-icon"></i>
-        </button>
-      </div>
-      <div class="col-xs-8 visible-xs-block text-center title-xs h-100 pt-4">{{routeName}}</div>
-      <div class="col-xs-2 visible-xs-block h-100">
-        <button type="button" class="btn button-purple text-center border-0 w-100 h-100" id="search-xs-button">
+  <div class="row fixed-top visible-xs-block text-white bg-purple align-items-center" id="nav-xs-header">
+    <!-- Top navigation bar for mobile devices -->
+    <div class="col-xs-2 visible-xs-block h-100">
+      <button type="button" class="btn button-purple text-center border-0 w-100 h-100" id="menu-xs-button">
+        <i aria-hidden="true" class="fa fa-bars md-icon"></i>
+      </button>
+    </div>
+    <div class="col-xs-8 visible-xs-block text-center title-xs h-100" id="page-title">{{routeName}}</div>
+    <div class="col-xs-2 visible-xs-block h-100">
+      <button type="button" class="btn button-purple text-center border-0 w-100 h-100" id="search-xs-button">
+        <i aria-hidden="true" class="fa fa-search md-icon"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Bottom navigation bar for small mobile devices -->
+  <div class="row fixed-bottom bg-purple align-items-center visible-xs text-white" id="nav-xs-footer">
+    <div class="col-xs-3 visible-xs-block h-100">
+      <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isActiveRoute name='Home'}} active-button{{else}} button-purple {{/if}}" id="btn-home">
+        <i aria-hidden="true" class="fa fa-home md-icon"></i>
+        <p class="text-under-button">Home</p>
+      </button>
+    </div>
+    <div class="col-xs-6 visible-xs-block h-100">
+      <button type="button" class="btn text-center border-0 w-100 h-100 {{#if isActiveRoute name='Trending Orders'}} active-button{{else}} button-purple {{/if}}" id="btn-trending">
+        <i aria-hidden="true" class="fa fa-bolt md-icon"></i>
+        <p class="text-under-button">Trending</p>
+      </button>
+    </div>
+    <div class="col-xs-3 visible-xs-block h-100">
+      <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isActiveRoute name='Closing Orders'}} active-button {{else}} button-purple {{/if}}" id="btn-closing">
+        <i aria-hidden="true" class="fa fa-clock-o md-icon"></i>
+        <p class="text-under-button">Closing</p>
+      </button>
+    </div>
+  </div>
+
+  <!-- Desktop Screen Navigation Bar -->
+  <div id="nav-lg-header" class="row fixed-top visible-sm-block visible-md-block visible-lg-block text-white bg-purple align-items-center">
+    <div class="col-sm-1 col-lg-1 visible-sm-block visible-md-block visible-lg-block h-100 ml-5">
+      <button type="button" class="btn button-purple text-center border-0 h-100 mr-2" id="menu-lg-button">
+        <i aria-hidden="true" class="fa fa-bars fa-2x"></i>
+      </button>
+
+    </div>
+    <div class="col-sm-5 col-lg-3 visible-sm-block visible-md-block visible-lg-block navbar-toggleable-sm">
+      <ul class="navbar-nav w-100 nav-fill">
+        <li class="nav-item">
+          <a href="{{pathFor 'Home'}}" class="nav-link {{#if isActiveRoute name='Home'}} active {{/if}}">
+            <i aria-hidden="true" class="fa fa-home md-icon"></i>&nbsp;
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{pathFor 'Trending Orders'}}" class="nav-link {{#if isActiveRoute name='Trending Orders'}} active {{/if}}">
+            <i aria-hidden="true" class="fa fa-bolt md-icon"></i>&nbsp;
+            Trending
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{pathFor 'Closing Orders'}}" class="nav-link {{#if isActiveRoute name='Closing Orders'}} active {{/if}}">
+            <i aria-hidden="true" class="fa fa-clock-o md-icon"></i>&nbsp;
+            Closing
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-6 col-lg-7 visible-sm-block visible-md-block visible-lg-block h-100">
+      <form class="form-inline float-right w-100 justify-content-end" id="search-form">
+        <input type="text" class="form-control mr-2" id="search-input" ref="searchInput"/>
+        <button type="submit" id="search-lg-button" class="btn button-purple-inverse rounded-circle">
           <i aria-hidden="true" class="fa fa-search md-icon"></i>
         </button>
-      </div>
-    </div>
-    <!-- Bottom navigation bar for small mobile devices -->
-    <div class="row fixed-bottom bg-purple align-items-center visible-xs text-white" id="nav-xs-footer">
-      <div class="col-xs-3 visible-xs-block h-100">
-        <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isActiveRoute name='Home'}} active-button{{else}} button-purple {{/if}}" id="btn-home">
-          <i aria-hidden="true" class="fa fa-home md-icon"></i>
-          <p class="text-under-button">Home</p>
-        </button>
-      </div>
-      <div class="col-xs-6 visible-xs-block h-100">
-        <button type="button" class="btn text-center border-0 w-100 h-100 {{#if isActiveRoute name='Trending Orders'}} active-button{{else}} button-purple {{/if}}" id="btn-trending">
-          <i aria-hidden="true" class="fa fa-bolt md-icon"></i>
-          <p class="text-under-button">Trending</p>
-        </button>
-      </div>
-      <div class="col-xs-3 visible-xs-block h-100">
-        <button type="button" class="btn text-center  border-0 w-100 h-100 {{#if isActiveRoute name='Closing Orders'}} active-button {{else}} button-purple {{/if}}" id="btn-closing">
-          <i aria-hidden="true" class="fa fa-clock-o md-icon"></i>
-          <p class="text-under-button">Closing</p>
-        </button>
-      </div>
-    </div>
-
-    <!-- Desktop Screen Navigation Bar -->
-    <div id="nav-lg-header" class="row fixed-top visible-sm-block visible-md-block visible-lg-block text-white bg-purple align-items-center">
-      <div class="col-sm-1 col-lg-1 visible-sm-block visible-md-block visible-lg-block h-100 ml-5">
-        <button type="button" class="btn button-purple text-center border-0 h-100 mr-2" id="menu-lg-button">
-          <i aria-hidden="true" class="fa fa-bars fa-2x"></i>
-        </button>
-
-      </div>
-      <div class="col-sm-5 col-lg-3 visible-sm-block visible-md-block visible-lg-block navbar-toggleable-sm">
-        <ul class="navbar-nav w-100 nav-fill">
-          <li class="nav-item">
-            <a href="{{pathFor 'Home'}}" class="nav-link {{#if isActiveRoute name='Home'}} active {{/if}}">
-              <i aria-hidden="true" class="fa fa-home md-icon"></i>&nbsp;
-              Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{pathFor 'Trending Orders'}}" class="nav-link {{#if isActiveRoute name='Trending Orders'}} active {{/if}}">
-              <i aria-hidden="true" class="fa fa-bolt md-icon"></i>&nbsp;
-              Trending
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{pathFor 'Closing Orders'}}" class="nav-link {{#if isActiveRoute name='Closing Orders'}} active {{/if}}">
-              <i aria-hidden="true" class="fa fa-clock-o md-icon"></i>&nbsp;
-              Closing
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-sm-6 col-lg-7 visible-sm-block visible-md-block visible-lg-block h-100">
-        <form class="form-inline float-right w-100 justify-content-end" id="search-form">
-          <input type="text" class="form-control mr-2" id="search-input" ref="searchInput"/>
-          <button type="submit" id="search-lg-button" class="btn button-purple-inverse rounded-circle">
-            <i aria-hidden="true" class="fa fa-search md-icon"></i>
-          </button>
-        </form>
-      </div>
+      </form>
     </div>
   </div>
 </template>

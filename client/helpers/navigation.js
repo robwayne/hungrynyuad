@@ -14,5 +14,12 @@ Template.navigation.events({
   'click #btn-closing'(event, template){
     event.preventDefault();
     FlowRouter.go('/closing');
+  },
+  'click #menu-xs-button'(event, template){
+    if(!slideoutInstance.isOpen()){
+      slideoutInstance.open();
+    }else {
+      slideoutInstance.close();
+    }
   }
-})
+});

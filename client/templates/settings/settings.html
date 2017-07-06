@@ -1,3 +1,20 @@
 <template name="settings">
-  Settings
+  <div class="settings-container">
+    <div class="settings-container-item inactive">
+      <label class="text-muted mb-2">Robert Gordon</label>
+    </div>
+    <div class="settings-container-item profile-btn">
+      <p>Profile</p>
+      <span><i class="fa fa-angle-right md-icon"></i></span>
+    </div>
+    <div class="settings-container-item favorites-btn">
+      <p>Favorites</p>
+      <span><i class="fa fa-angle-right md-icon"></i></span>
+    </div>
+    <div class="settings-container-item">
+      <button class="btn btn-danger btn-logout w-100">
+        <i aria-hidden="true" class="fa fa-sign-out"></i> Logout
+      </button>
+    </div>
+  </div>
 </template>

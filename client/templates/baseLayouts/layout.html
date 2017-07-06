@@ -1,8 +1,14 @@
 <template name="layout">
-  {{> navigation}}
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">{{>Template.dynamic template=main}}</div>
+    <div class="row" id="layout-container">
+      <div id="side-menu">
+        {{>slideoutMenu}}
+      </div>
+
+      <div class="col-12" id="main-content">
+        {{> navigation}}
+        {{>Template.dynamic template=main}}
+      </div>
     </div>
   </div>
 </template>

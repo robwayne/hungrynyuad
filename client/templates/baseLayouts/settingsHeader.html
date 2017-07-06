@@ -1,6 +1,10 @@
 <template name="settingsHeader">
-  <div class="fixed-top pt-4 pl-2">
-    <button class="btn btn-link btn-back"><i class="fa fa-chevron-left text-primary" aria-hidden="true"></i> Back</button>
-    <h2 class="text-center pt-0 pb-3">{{routeName}}</h2>
+  <div class="fixed-top settings-nav">
+    <div class="settings-nav-item d-flex align-items-center h-100 btn-back-div">
+      <button class="btn btn-back text-primary btn-link ml-2 h-100"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+    </div>
+    <div class="settings-nav-item d-flex align-items-center">
+      <h5 class="m-0 ml-4">{{routeName}}</h5>
+    </div>
   </div>
 </template>
