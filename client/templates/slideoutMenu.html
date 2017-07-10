@@ -33,34 +33,15 @@
       </div>
     </div>
   {{/if}}
-  <div class="slideout-restaurant-list">
+  <div class=" {{#unless currentUser}} position {{/unless}} slideout-restaurant-list">
     <div class="figure-caption">
       <h6 class="ml-2 text-muted">All Restaurants</h6>
     </div>
-    <div class="slideout-restaurant-list-item">
-      <div class="restaurant-pic"></div>
-      <p class="mb-0">Briyani</p>
-    </div>
-    <div class="slideout-restaurant-list-item">
-      <div class="restaurant-pic"></div>
-      <p class="m-0">KFC</p>
-    </div>
-    <div class="slideout-restaurant-list-item">
-      <div class="restaurant-pic"></div>
-      <p class="m-0">McDonalds</p>
-    </div>
-    <div class="slideout-restaurant-list-item">
-      <div class="restaurant-pic"></div>
-      <p class="m-0">Popeyes</p>
-    </div>
-    <div class="slideout-restaurant-list-item">
-      <div class="restaurant-pic"></div>
-      <p class="m-0">Subway</p>
-    </div>
+    {{#each restaurants}}
+      <div class="slideout-restaurant-list-item">
+        <div class="restaurant-pic"></div>
+        <p class="mb-0">{{name}}</p>
+      </div>
+    {{/each}}
   </div>
-  <!--{{#each restaurant in restaurants}}
-    <div class="restaurant-list-item">
-      <p>{{restaurant.name}}</p>
-    </div>
-  {{/each}} -->
 </template>

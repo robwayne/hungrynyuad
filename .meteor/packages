@@ -38,3 +38,6 @@ arillo:flow-router-helpers
 zimme:active-route
 chriswessels:hammer
 patrickleet:slideout
+cfs:standard-packages
+cfs:gridfs
+cfs:graphicsmagick
