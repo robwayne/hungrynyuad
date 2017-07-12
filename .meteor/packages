@@ -40,4 +40,5 @@ chriswessels:hammer
 patrickleet:slideout
 cfs:standard-packages
 cfs:gridfs
-cfs:graphicsmagick
+cfs:filesystem
+aldeed:collection2-core

@@ -2,8 +2,8 @@
   {{#if currentUser}}
     <div class="fixed-top slideout-menu-nav">
       <div class="settings-nav-item h-100">
-        <div class="user-pic"></div>
-        <h5 class="ml-2 mt-2">Robert Gordon</h5>
+        <img src="{{userProfile.avatar_url}}" class="user-pic">
+        <h5 class="ml-2 mt-2">{{userProfile.name}}</h5>
       </div>
       <div class="settings-nav-item mr-2 mt-2">
         <a href="{{pathFor 'Settings'}}" style="color:black"><i aria-hidden="true" class="fa fa-cog md-icon"></i></a>
@@ -26,10 +26,10 @@
   {{else}}
     <div class="fixed-top slideout-menu-nav">
       <div class="settings-nav-item h-100">
-        <button class="btn button-purple border-0 ml-2 mt-2"><i aria-hidden="true" class="fa fa-sign-in"></i> Sign In</button>
+        <button class="btn btn-success border-0 ml-2 mt-2"><i aria-hidden="true" class="fa fa-sign-in"></i> Sign In</button>
       </div>
       <div class="settings-nav-item mr-2 mt-2">
-        <a href="{{pathFor 'Sign In'}}" style="color:black"><i aria-hidden="true" class="fa fa-user md-icon"></i></a>
+        <a href="{{pathFor 'Sign In'}}" class="text-success"><i aria-hidden="true" class="fa fa-user md-icon"></i></a>
       </div>
     </div>
   {{/if}}

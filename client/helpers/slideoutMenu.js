@@ -1,5 +1,5 @@
 Template.slideoutMenu.helpers({
-  restaurants(){
+  'restaurants': function(){
     return Restaurants.find({}, {sort:{name:1}});
   }
 });
