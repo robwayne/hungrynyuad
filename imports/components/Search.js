@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
     color: '#FFF',
     transition: 'box-shadow 0.1s ease-in-out',
     ':focus': {
-      boxShadow: '0px 0px 45px #0008'
+      boxShadow: '0px 0px 45px rgba(0,0,0,0.5)'
     },
     '::-webkit-input-placeholder': {
-      color: '#FFF8'
+      color: 'rgba(255,255,255,0.5)'
     }
   }
 })

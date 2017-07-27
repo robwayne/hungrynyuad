@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     flex: 1,
     overflowY: 'scroll',
     padding: '0px 45px',
-    backgroundColor: '#FFF0',
     width: '100%',
   },
   results: {
@@ -29,11 +28,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-start',
     flexWrap: 'wrap',
-    backgroundColor: '#FFF0',
     width: '100%',
   },
   resultContainer: {
-    backgroundColor: '#FFF0',
     width: '50%',
     paddingBottom: '10px',
   },
@@ -43,7 +40,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Futura',
     fontWeight: 700,
     fontSize: '14px',
-    color: '#FFF8',
+    color: 'rgba(255,255,255,0.5)',
     textAlign: 'center',
     padding: '10px 0px 20px 0px',
   }

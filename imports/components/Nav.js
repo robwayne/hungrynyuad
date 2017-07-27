@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     margin: '12px 2px',
     height: '40px',
     lineHeight: '40px',
-    color: "#FFF8",
+    color: "rgba(255,255,255,0.5)",
     textDecoration: 'none',
     padding: '0px 20px',
     fontSize: '20px',

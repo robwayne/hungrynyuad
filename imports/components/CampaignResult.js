@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     top: '8px'
   },
   host: {
-    color: "#FFF8",
+    color: "rgba(255,255,255,0.5)",
     fontFamily: 'Futura',
     fontSize: '14px',
     position: 'absolute',
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     top: '36px',
   },
   time: {
-    color: "#FFF8",
+    color: "rgba(255,255,255,0.5)",
     fontFamily: 'Futura',
     fontSize: '14px',
     position: 'absolute',
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     left: '0px',
     right: '0px',
     bottom: '0px',
-    backgroundColor: '#FFF4',
+    backgroundColor: 'rgba(255,255,255,0.25)',
     left: '10px',
     right: '10px',
     transition: 'opacity 0.2s ease-in-out',

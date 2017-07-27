@@ -20,3 +20,6 @@ textarea {
   outline: none;
   border: none;
 }
+a {
+  text-decoration: none;
+}
