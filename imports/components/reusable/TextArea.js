@@ -24,6 +24,12 @@ const styles = StyleSheet.create({
     },
     '::-webkit-input-placeholder': {
       color: 'rgba(255,255,255,0.5)'
-    }
+    },
+    '::-moz-placeholder': {
+      color: 'rgba(255,255,255,0.5)'
+    },
+    ':-ms-input-placeholder': {
+      color: 'rgba(255,255,255,0.5)'
+    },
   }
 })

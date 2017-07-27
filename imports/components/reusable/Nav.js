@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   nav: {
     backgroundColor: 'rgba(255,255,255,0.0)',
     height: '64px',
-    width: '100vw',
+    width: '100%',
     display: 'flex',
     justifyContent: 'flex-start',
     '@media (max-width: 768px)': {

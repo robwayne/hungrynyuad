@@ -52,9 +52,5 @@ class Campaigns extends Component {
     )
   }
 }
-const test = ({match}) => {
 
-  console.log(c)
-
-}
 export default Campaigns

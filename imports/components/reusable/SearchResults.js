@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
-export default ({children}) => {
+export default ({children, emptyFooter, normalFooter}) => {
   return (
     <div className={css(styles.root)}>
       <div className={css(styles.results)}>
@@ -10,7 +10,7 @@ export default ({children}) => {
         })}
       </div>
       <div className={css(styles.footer)}>
-        {React.Children.count(children) === 0 ? "No matching orders":"No more active orders"}
+        {React.Children.count(children) === 0 ? emptyFooter:normalFooter}
       </div>
     </div>
   )
@@ -19,7 +19,7 @@ export default ({children}) => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    overflowY: 'scroll',
+    overflowY: 'auto',
     padding: '0px 45px',
     width: '100%',
   },

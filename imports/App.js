@@ -4,11 +4,11 @@ import { Route, Redirect, NavLink, Switch } from 'react-router-dom'
 
 import PrivateRoute from './components/PrivateRoute.js'
 import Campaigns from './components/Campaigns.js'
+import Inbox from './components/Inbox.js'
 import { Nav, NavItem } from './components/reusable/Nav.js'
 
 const Login = () => ( <h1>Login</h1> )
 const Profile = () => ( <h1>Profile</h1> )
-const Inbox = () => ( <h1>Inbox</h1> )
 
 const Private = () => (
   <div>

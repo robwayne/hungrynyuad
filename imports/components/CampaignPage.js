@@ -5,10 +5,15 @@ import classNames from 'classnames'
 import ProgressBar from './reusable/ProgressBar.js'
 import TextArea from './reusable/TextArea.js'
 import Button from './reusable/Button.js'
+import testRestaurants from '../data/testRestaurants.js'
 
-export default ({campaign}) => (
+export default ({campaign}) => {
+  const imageURL = testRestaurants.find((r) => (r.name === (campaign.restaurant))).imageURL
+  return (
   <div className = {css(styles.root)}>
-    <div className = {css(styles.restaurantImage)}/>
+    <div className = {css(styles.restaurantImage)}>
+      <img src={imageURL} className = {css(styles.image)}/>
+    </div>
     <div className={css(styles.restaurant)}>{campaign.restaurant}</div>
     <div className={css(styles.host)}>{campaign.host + " | " + campaign.stars.toString() + " ★"}</div>
     <div className={css(styles.time)}>{"Order closes " + moment(campaign.time).fromNow()}</div>
@@ -20,9 +25,9 @@ export default ({campaign}) => (
     </div>
     <div className={classNames('separator',css(styles.separator))}/>
     <TextArea placeholder="Add Order" passedStyle={styles.TextArea}/>
-    <Button name="Submit" passedStyle={styles.Button}/>
+    <Button name="Submit" passedStyle={styles.Button} onClick={()=>{alert("Clicked!")}}/>
   </div>
-)
+)}
 
 const styles = StyleSheet.create({
   root: {
@@ -39,15 +44,22 @@ const styles = StyleSheet.create({
     flexWrap: 'no-wrap',
     flexDirection: 'column',
     alignItems: 'center',
-    overflowY: 'scroll',
+    overflow: 'auto',
+    cursor: 'default',
   },
   restaurantImage: {
-    backgroundColor: '#F00',
+    backgroundColor: '#FFF',
     height: '160px',
     width: '160px',
     borderRadius: '80px',
     margin: '20px 0px 10px 0px',
     flex: '0 0 auto',
+    overflow: 'hidden',
+    boxShadow: '0px 0px 45px rgba(0,0,0,0.5)',
+  },
+  image: {
+    maxWidth: '100%',
+    maxHeight: '100%',
   },
   restaurant: {
     color: "#FFF",
