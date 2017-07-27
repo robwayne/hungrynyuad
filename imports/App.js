@@ -6,8 +6,10 @@ import PrivateRoute from './components/PrivateRoute.js'
 import Campaigns from './components/Campaigns.js'
 import Inbox from './components/Inbox.js'
 import { Nav, NavItem } from './components/reusable/Nav.js'
+import Login from './components/Login.js'
+import AuthService from './utils/AuthService.js'
 
-const Login = () => ( <h1>Login</h1> )
+const auth = new AuthService('Nx4su9syS4W9yaOW2lOcFZeBh8nbxyx8', 'jonahjoughin.auth0.com');
 const Profile = () => ( <h1>Profile</h1> )
 
 const Private = () => (
@@ -29,8 +31,13 @@ const Private = () => (
 export default () => (
   <div className={css(styles.appContainer)}>
     <Switch>
-      <Route path = "/login" component={Login}/>
-      <PrivateRoute path = "/" component={Private} authorized = {true}/>
+      <Route
+        path = "/login"
+        render={()=>(
+          <Login auth={auth}/>
+        )
+        }/>
+      <PrivateRoute path = "/" component={Private} authorized = {auth.loggedIn()}/>
     </Switch>
   </div>
 )

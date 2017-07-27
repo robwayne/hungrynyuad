@@ -9,7 +9,7 @@ import testCampaigns from '../data/testCampaigns.js'
 export default ({ setFilter,filterCampaigns, filter }) => (
   <div className={css(styles.root)}>
     <Search onChange={setFilter} value={filter}/>
-    <SearchResults>
+    <SearchResults emptyFooter="No matching campaigns" normalFooter="No more active campaigns">
       {testCampaigns
         .slice(10)
         .filter((c) => (filterCampaigns(c)))
