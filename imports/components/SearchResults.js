@@ -33,9 +33,22 @@ const styles = StyleSheet.create({
   resultContainer: {
     width: '50%',
     paddingBottom: '10px',
+    '@media (max-width: 768px)': {
+      width: '100%',
+    }
   },
-  left: { paddingRight: '5px' },
-  right: { paddingLeft: '5px' },
+  left: {
+    paddingRight: '5px',
+    '@media (max-width: 768px)': {
+      paddingRight: '0px',
+    }
+  },
+  right: {
+    paddingLeft: '5px' ,
+    '@media (max-width: 768px)': {
+      paddingLeft: '0px',
+    }
+  },
   footer: {
     fontFamily: 'Futura',
     fontWeight: 700,

@@ -7,7 +7,7 @@ export const Nav = ({children}) => (
     {children}
   </div>
 )
-export const NavItem =  ({ name, link, exact=false }) => (
+export const NavItem =  ({ name, link, exact=false, notification=false }) => (
   <div className={css(styles.navItemRoot)}>
     <NavLink
       className={css(styles.navLink)}
@@ -15,6 +15,8 @@ export const NavItem =  ({ name, link, exact=false }) => (
       exact={exact}
       activeStyle={{color: '#FFF'}}>
         {name}
+        {notification && <div className={css(styles.notificationIndicator)}/>}
+
     </NavLink>
   </div>
 )
@@ -24,6 +26,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.0)',
     height: '64px',
     width: '100vw',
+    '@media (max-width: 768px)': {
+      textAlign: 'center',
+    }
   },
   navItemRoot: {
     display: 'inline-block',
@@ -37,9 +42,20 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,0.5)",
     textDecoration: 'none',
     padding: '0px 20px',
+    position: 'relative',
     fontSize: '20px',
     fontFamily: 'Futura',
     fontWeight: 400,
     borderRadius: '5px',
+  },
+  notificationIndicator: {
+    display: 'inline-block',
+    height: '10px',
+    width: '10px',
+    borderRadius: '5px',
+    backgroundColor: '#11E910',
+    position: 'absolute',
+    right: '0px',
+    top: '15px',
   }
 })

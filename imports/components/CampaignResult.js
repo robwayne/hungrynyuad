@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     borderRadius: '5px',
     cursor: ['pointer','hand'],
     padding: '0px 10px',
+    backfaceVisibility: 'hidden',
     '::after': {
       content: "''",
       position: 'absolute',
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
       opacity: 0,
       transition: 'opacity 0.2s ease-in-out',
       boxShadow: '0px 0px 45px rgba(0,0,0,0.5)',
+      backfaceVisibility: 'hidden',
     },
     ':hover::after': {
       opacity: 1,

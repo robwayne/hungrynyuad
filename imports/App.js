@@ -15,7 +15,7 @@ const Private = () => (
     <Nav>
       <NavItem name="Profile" link="/profile"/>
       <NavItem name="Campaigns" link="/campaigns"/>
-      <NavItem name="Inbox" link="/inbox"/>
+      <NavItem name="Inbox" link="/inbox" notification={true}/>
     </Nav>
     <Switch>
       <Redirect exact from='/' to='/campaigns'/>

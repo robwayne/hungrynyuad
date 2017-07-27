@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.25)',
     color: '#FFF',
     transition: 'box-shadow 0.1s ease-in-out',
+    backfaceVisibility: 'hidden',
     ':focus': {
       boxShadow: '0px 0px 45px rgba(0,0,0,0.5)'
     },
