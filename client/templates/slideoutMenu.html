@@ -2,8 +2,8 @@
   {{#if currentUser}}
     <div class="fixed-top slideout-menu-nav">
       <div class="settings-nav-item h-100">
-        <img src="{{userProfile.avatar_url}}" class="user-pic">
-        <h5 class="ml-2 mt-2">{{userProfile.name}}</h5>
+        <a href="{{pathFor 'Profile'}}" style="color:black"><img src="{{userProfile.avatar_url}}" class="user-pic"></a>
+        <a href="{{pathFor 'Profile'}}" style="color:black"><h5 class="ml-2 mt-2">{{userProfile.name}}</h5></a>
       </div>
       <div class="settings-nav-item mr-2 mt-2">
         <a href="{{pathFor 'Settings'}}" style="color:black"><i aria-hidden="true" class="fa fa-cog md-icon"></i></a>
@@ -13,12 +13,16 @@
       <div class="figure-caption">
         <h6 class="ml-2 text-muted">Favorites and Saved</h6>
       </div>
-      <div class="slideout-middle-item">
-        <p><span class="mr-1"><i aria-hidden="true" class="fa fa-bell-o"></i></span> Notifications</p>
+      <div class="clickable-list-item">
+        <a href="/notifications" class="clickable-anchor-item">
+          <span class="mr-1"><i aria-hidden="true" class="fa fa-bell-o"></i></span> Notifications
+        </a>
         <span class="mr-3"><i aria-hidden="true" class="fa fa-angle-right md-icon"></i></span>
       </div>
-      <div class="slideout-middle-item">
-        <p><span class="mr-2"><i aria-hidden="true" class="fa fa-bookmark-o"></i></span> Saved Campaigns</p>
+      <div class="clickable-list-item">
+        <a href="/saved" class="clickable-anchor-item">
+          <span class="mr-2"><i aria-hidden="true" class="fa fa-bookmark-o"></i></span> Saved Campaigns
+        </a>
         <span class="mr-3"><i aria-hidden="true" class="fa fa-angle-right md-icon"></i></span>
       </div>
 
@@ -39,9 +43,10 @@
     </div>
     {{#each restaurants}}
       <div class="slideout-restaurant-list-item">
-        <div class="restaurant-pic"></div>
+        <img src="{{banner_img_url}}" alt="logo" class="restaurant-pic">
         <p class="mb-0">{{name}}</p>
       </div>
     {{/each}}
+
   </div>
 </template>

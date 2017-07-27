@@ -19,12 +19,12 @@
 }
 
 
-.md-icon {font-size: 1.4em;}
+.md-icon {
+  font-size: 1.4em;
+}
 
-
-
-.test{
-  background:#fff;
+.sm-icon{
+  font-size:1.14em;
 }
 
 .title{
@@ -208,4 +208,32 @@ h2.hungry, p.hungry{
 p.text-center.feedback-message {
     font-size: 1em;
     font-family: 'Helvetica Neue', sans-serif;
+}
+
+.clickable-anchor-item{
+  margin:0;
+  margin-left:15px;
+  align-self: center;
+  text-decoration:none;
+  color:inherit;
+  width:100%;
+  height:100%;
+  padding-top:8px;
+}
+
+.clickable-list-item{
+  width:100%;
+  background:inherit;
+  height:30px;
+  padding:0;
+  margin:0;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clickable-list-item:hover, .clickable-list-item:focus, .clckable-anchor-item:hover, .clickable-anchor-item:focus{
+  background:#f0f0f0;
+  text-decoration:none;
+  color:inherit;
 }

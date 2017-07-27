@@ -1,3 +1,24 @@
 <template name="favorites">
-  Favorites
+  <div class="content">
+    <section class="info-card">
+      <div class="info-card-header"><span>Pick your favorite restaurants</span></div>
+      <hr/>
+      <div class="info-card-body">
+        <p>Add your favorite restaurants and never miss out on any of their orders.</p>
+      </div>
+    </section>
+    <section class="restaurant-list">
+      {{#each restaurants}}
+        <div class="restaurant-list-item">
+          <div class="restaurant-info">
+            <img src="{{banner_img_url}}" alt="logo" class="user-pic">
+            <p class="mb-0">{{name}}</p>
+          </div>
+          <div class="favorite-button">
+            <div class="favorite-btn fa {{#if favorited}} fa-star gold {{else}} fa-star-o greyed {{/if}} md-icon"></div>
+          </div>
+        </div>
+      {{/each}}
+    </section>
+  </div>
 </template>

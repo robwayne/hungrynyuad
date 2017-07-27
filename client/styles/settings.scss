@@ -3,11 +3,12 @@
 */
 
 .settings-container{
-  height:100vh;
+  width:100%;
+  height:100%;
   display:flex;
   flex-direction:column;
   background:#fff;
-  padding-top:50px;
+  padding:50px 5px 0px 5px;
 }
 
 .settings-container-item{
@@ -35,4 +36,12 @@
 
 .btn-logout{
   height:30px;
+}
+
+.settings-container-item.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-right: 5px;
+    padding-left: 5px;
 }
