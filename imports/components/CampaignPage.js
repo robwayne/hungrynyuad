@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     left: '50%',
     transform: 'translateX(-50%)',
     display: 'flex',
+    flexWrap: 'no-wrap',
     flexDirection: 'column',
     alignItems: 'center',
     overflowY: 'scroll',
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
     width: '160px',
     borderRadius: '80px',
     margin: '20px 0px 10px 0px',
+    flex: '0 0 auto',
   },
   restaurant: {
     color: "#FFF",
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
     fontSize: '36px',
     textAlign: 'center',
     margin: '0px 0px 5px 0px',
+    flex: '0 0 auto',
   },
   host: {
     color: "rgba(255,255,255,0.5)",
@@ -61,6 +64,7 @@ const styles = StyleSheet.create({
     fontSize: '14px',
     textAlign: 'center',
     margin: '0px 0px 25px 0px',
+    flex: '0 0 auto',
 
   },
   time: {
@@ -69,12 +73,14 @@ const styles = StyleSheet.create({
     fontSize: '20px',
     textAlign: 'center',
     margin: '0px 0px 25px 0px',
+    flex: '0 0 auto',
   },
   flexContainer: {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
     margin: '0px 0px 5px 0px',
+    flex: '0 0 auto',
   },
   progressWrapper: {
     width: '80px',
@@ -92,17 +98,20 @@ const styles = StyleSheet.create({
     height: '1px',
     width: '100%',
     backgroundColor: 'rgba(255,255,255,0.25)',
-    margin: '0px 0px 20px 0px'
+    margin: '0px 0px 20px 0px',
+    flex: '0 0 auto',
   },
   TextArea: {
     width: '100%',
     margin: '0px 0px 20px 0px',
     height: '160px',
+    flex: '0 0 auto',
   },
   Button: {
     margin: '0px 0px 20px 0px',
     width: '100%',
     height: '42px',
+    flex: '0 0 auto',
   },
   progressBar: {
     height: '10px',
