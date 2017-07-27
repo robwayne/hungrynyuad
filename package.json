@@ -1,24 +1,17 @@
 {
-  "name": "hungrynyuad",
+  "name": "hungry_v2",
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
   "dependencies": {
+    "aphrodite": "^1.2.3",
     "babel-runtime": "^6.20.0",
-    "bootstrap": "^4.0.0-alpha.6",
+    "classnames": "^2.2.5",
     "meteor-node-stubs": "~0.2.4",
-    "simpl-schema": "^0.3.1"
-  },
-  "devDependencies": {
-    "@meteorjs/eslint-config-meteor": "^1.0.5",
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-import-resolver-meteor": "^0.4.0",
-    "eslint-plugin-import": "^2.5.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-meteor": "^4.0.1",
-    "eslint-plugin-react": "^7.1.0"
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2"
   }
 }

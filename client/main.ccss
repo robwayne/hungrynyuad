@@ -1,0 +1,22 @@
+/*Reset CSS*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+img {
+  display: block;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
