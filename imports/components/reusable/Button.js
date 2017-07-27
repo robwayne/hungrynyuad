@@ -1,11 +1,10 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-export default ({name, onClick, w='100%',h='42px'}) => (
+export default ({name, onClick, passedStyle}) => (
   <div
     onClick={onClick}
-    className={css(styles.button)}
-    style={{width: w, height: h}}
+    className={css(styles.button, passedStyle)}
   >
     {name}
   </div>

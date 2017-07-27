@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import moment from 'moment'
 import classNames from 'classnames'
-import ProgressBar from './ProgressBar.js'
+import ProgressBar from './reusable/ProgressBar.js'
 import { Link } from 'react-router-dom'
 
 export default ({campaign}) => (
@@ -13,7 +13,7 @@ export default ({campaign}) => (
         <div className={css(styles.time)}>{moment(campaign.time).fromNow()}</div>
         <div className={css(styles.flexContainer)}>
           <div className={css(styles.progressWrapper)}>
-            <ProgressBar progress={campaign.progress/campaign.total}/>
+            <ProgressBar progress={campaign.progress/campaign.total} passedStyle={styles.progressBar}/>
           </div>
           <div className={css(styles.dirhams)}>{campaign.progress+"/"+campaign.total+"AED"}</div>
         </div>
@@ -108,5 +108,10 @@ const styles = StyleSheet.create({
     left: '10px',
     right: '10px',
     transition: 'opacity 0.2s ease-in-out',
+  },
+  progressBar: {
+    height: '6px',
+    borderRadius: '3px',
+    width: '100%',
   }
 })

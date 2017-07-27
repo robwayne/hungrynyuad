@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import { Route, Switch } from 'react-router-dom'
 
-import PropsRoute from './PropsRoute.js'
-import Search from './Search.js'
-import SearchResults from './SearchResults.js'
 import CampaignResult from './CampaignResult.js'
 import CampaignsIndex from './CampaignsIndex.js'
 import CampaignPage from './CampaignPage.js'
@@ -42,17 +39,22 @@ class Campaigns extends Component {
           />)
         }
       />
-      <Route path = {this.props.match.url+"/:id"} component={test}/>
+      <Route
+        path = {this.props.match.url+"/:id"}
+        render={({match})=>{
+          const c = testCampaigns.find((c) => (c._id.toString() === (match.params.id)))
+          return (<CampaignPage
+            key={c._id}
+            campaign={c}
+          />)
+        }}/>
       </Switch>
     )
   }
 }
 const test = ({match}) => {
-  const c = testCampaigns.find((c) => (c._id.toString() === (match.params.id)))
+
   console.log(c)
-  return (<CampaignPage
-    key={c._id}
-    campaign={c}
-  />)
+
 }
 export default Campaigns

@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-export default ({onChange, placeholder }) => (
+export default ({onChange, placeholder, passedStyle}) => (
   <textarea
-    className = {css(styles.textArea)}
+    className = {css(styles.textArea, passedStyle)}
     placeholder={placeholder}
     onChange={onChange}
   />
@@ -11,8 +11,6 @@ export default ({onChange, placeholder }) => (
 
 const styles = StyleSheet.create({
   textArea: {
-    width: '100%',
-    height: '100%',
     resize: 'none',
     backgroundColor: 'rgba(255,255,255,0.25)',
     borderRadius: '5px',
