@@ -50,11 +50,20 @@ const hosts = [
   },
 ]
 
+const messageTexts = [
+  'Order Recieved',
+  'Order Cancelled',
+  'Order Arrived',
+  'Flagged for Missing Pickup'
+]
+
 const randomHost = () => (
   hosts[Math.floor(Math.random()*hosts.length)]
 )
-
-const randomTime = () => (
+const randomPastTime = () => (
+  Date.now() - Math.floor(Math.random()*1000000+1000000)
+)
+const randomFutureTime = () => (
   Date.now() + Math.floor(Math.random()*1000000+1000000)
 )
 const randomAmount = () => (
@@ -63,8 +72,20 @@ const randomAmount = () => (
 
 export const randomCampaign = () => ({
   _id: generateID('c'),
-  closesAt: randomTime(),
+  closesAt: randomFutureTime(),
   amountRaised: randomAmount(),
   restaurant: randomRestaurant(),
   host: randomHost(),
+})
+
+const randomMessageText = () => (
+  messageTexts[Math.floor(Math.random()*messageTexts.length)]
+)
+
+export const randomMessage = () => ({
+  _id: generateID('c'),
+  messageText: randomMessageText(),
+  sender: randomRestaurant().name,
+  sentAt: randomPastTime(),
+  opened: false,
 })

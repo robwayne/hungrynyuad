@@ -1,9 +1,10 @@
-import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import moment from 'moment'
-import classNames from 'classnames'
-import ProgressBar from './reusable/ProgressBar.js'
+import React from 'react'
 import { Link } from 'react-router-dom'
+
+import ProgressBar from './reusable/ProgressBar.js'
+import { theme, pseudoShadow, pseudoShadowOnHover } from '../styles'
 
 export default ({campaign}) => (
   <Link to={'/campaigns/'+campaign._id.toString()}>
@@ -17,7 +18,7 @@ export default ({campaign}) => (
           </div>
           <div className={css(styles.dirhams)}>{campaign.amountRaised+"/"+campaign.restaurant.minimumOrder+"AED"}</div>
         </div>
-        <div className={classNames('separator',css(styles.separator))}/>
+        <div className={['separator',css(styles.separator)].join(' ')}/>
     </div>
   </Link>
 )
@@ -28,52 +29,36 @@ const styles = StyleSheet.create({
     height: '85px',
     width: '100%',
     position: 'relative',
-    borderRadius: '5px',
+    borderRadius: theme.borderRadius,
     cursor: ['pointer','hand'],
     padding: '0px 10px',
-    backfaceVisibility: 'hidden',
-    '::after': {
-      content: "''",
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      zIndex: -1,
-      width: '100%',
-      height: '100%',
-      borderRadius: '5px',
-      opacity: 0,
-      transition: 'opacity 0.2s ease-in-out',
-      boxShadow: '0px 0px 45px rgba(0,0,0,0.5)',
-      backfaceVisibility: 'hidden',
-    },
-    ':hover::after': {
-      opacity: 1,
-    },
+    '::after': pseudoShadow,
+    ':hover::after': pseudoShadowOnHover,
     ':hover > .separator': {
       opacity: 0,
     },
   },
   restaurant: {
     color: "#FFF",
-    fontFamily: 'Futura',
+    fontFamily: theme.primaryFontFace,
     fontWeight: 700,
-    fontSize: '20px',
+    fontSize: theme.fontSizeMedium,
     position: 'absolute',
     left: '10px',
     top: '8px'
   },
   host: {
-    color: "rgba(255,255,255,0.5)",
-    fontFamily: 'Futura',
-    fontSize: '14px',
+    color: theme.lightTransparent,
+    fontFamily: theme.primaryFontFace,
+    fontSize: theme.fontSizeSmall,
     position: 'absolute',
     left: '10px',
     top: '36px',
   },
   time: {
-    color: "rgba(255,255,255,0.5)",
-    fontFamily: 'Futura',
-    fontSize: '14px',
+    color: theme.lightTransparent,
+    fontFamily: theme.primaryFontFace,
+    fontSize: theme.fontSizeSmall,
     position: 'absolute',
     right: '10px',
     top: '8px',
@@ -93,21 +78,19 @@ const styles = StyleSheet.create({
   },
   dirhams: {
     color: "#FFF",
-    fontFamily: 'Futura',
-    fontSize: '14px',
+    fontFamily: theme.primaryFontFace,
+    fontSize: theme.fontSizeSmall,
     textAlign: 'right',
     minWidth: '90px',
   },
   separator: {
-    height: '1px',
+    backgroundColor: theme.mediumTransparent,
+    transition: theme.opacityTransition,
     position: 'absolute',
-    left: '0px',
-    right: '0px',
-    bottom: '0px',
-    backgroundColor: 'rgba(255,255,255,0.25)',
     left: '10px',
     right: '10px',
-    transition: 'opacity 0.2s ease-in-out',
+    bottom: '0px',
+    height: '1px',
   },
   progressBar: {
     height: '6px',

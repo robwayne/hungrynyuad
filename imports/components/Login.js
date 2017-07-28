@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite'
-import { connect } from 'react-redux'
 import Auth0Lock from 'auth0-lock'
 import axios from 'axios'
-
-import { authHeader } from '../utils'
-import Button from './reusable/Button.js'
-import { loggedIn, setAccessToken, setIDToken, getAccessToken, getIDToken } from '../utils/AuthService.js';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
+import Button from './reusable/Button.js'
+import { theme } from '../styles'
+import { authHeader } from '../utils'
+import { loggedIn, setAccessToken, setIDToken, getAccessToken, getIDToken } from '../utils/AuthService.js';
 import { setTokens } from '../actions/tokens'
 import { setUserInformation } from '../actions/user'
 
-const clientID = 'Nx4su9syS4W9yaOW2lOcFZeBh8nbxyx8'
-const domain = 'jonahjoughin.auth0.com'
-
-const Login = ({loggedIn, onAuth}) => {
-  const lock = new Auth0Lock(clientID, domain, {})
+// Login Display Component
+const Login = ({isAuthenticated, onAuth}) => {
+  const lock = new Auth0Lock('Nx4su9syS4W9yaOW2lOcFZeBh8nbxyx8', 'jonahjoughin.auth0.com', {})
   lock.on('authenticated', onAuth)
   const authenticate = (options) => {
     lock.show(options)
@@ -28,7 +26,7 @@ const Login = ({loggedIn, onAuth}) => {
     authenticate(signupOptions)
   }
   return (
-    loggedIn
+    isAuthenticated
       ? (<Redirect to='/campaigns'/>)
       : (<div className={css(styles.root)}>
           <h1 className={css(styles.title)}>Hungry at NYUAD</h1>
@@ -38,25 +36,39 @@ const Login = ({loggedIn, onAuth}) => {
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
+// Links props from redux
+const mapStateToProps = state => {
   return {
-    loggedIn: (state.tokens.idToken !== '' && state.tokens.accessToken !== '')
+    isAuthenticated: (state.tokens.idToken !== '' && state.tokens.accessToken !== '')
   }
 }
 
+// Callback for retrieving and saving user data
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onAuth: (auth) => {
       dispatch(setTokens(auth.accessToken, auth.idToken))
       axios.get('https://jonahjoughin.auth0.com/userinfo', authHeader(auth.accessToken))
         .then((res) => {
-          console.log(res)
           dispatch(setUserInformation(res.data.user_id, res.data.name, "email", 1))
         })
     }
   }
 }
+
+// Wrapped component
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+const loginOptions =  {
+  theme: { primaryColor: "#6E41BF" },
+  languageDictionary: { title: "Hungry at NYUAD" },
+  allowSignUp: false
+}
+const signupOptions =  {
+  theme: { primaryColor: "#6E41BF" },
+  languageDictionary: { title: "Hungry at NYUAD" },
+  allowLogin: false
+}
 
 const styles = StyleSheet.create({
   root: {
@@ -73,13 +85,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'display',
-    cursor: 'default',
   },
   title: {
-    fontFamily: 'Futura',
+    fontFamily: theme.primaryFontFace,
+    fontSize: theme.fontSizeLarge,
     fontWeight: 700,
-    fontSize: '36px',
     color: '#FFF',
     textAlign: 'center',
     margin: '20px 0px',
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
   Button: {
     width: "500px",
     margin: "15px 0px",
-    backgroundColor: 'rgba(255,255,255,0.25)',
+    backgroundColor: theme.mediumTransparent,
     color: '#FFF',
     ':hover': {
       backgroundColor: "#FFF",
@@ -95,22 +105,3 @@ const styles = StyleSheet.create({
     }
   }
 })
-
-const loginOptions =  {
-  theme: {
-    primaryColor: "#6E41BF",
-  },
-  languageDictionary: {
-    title: "Hungry at NYUAD",
-  },
-  allowSignUp: false
-}
-const signupOptions =  {
-  theme: {
-    primaryColor: "#6E41BF",
-  },
-  languageDictionary: {
-    title: "Hungry at NYUAD",
-  },
-  allowLogin: false
-}

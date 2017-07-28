@@ -1,14 +1,13 @@
-import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import moment from 'moment'
-import classNames from 'classnames'
+import React from 'react'
+import { connect } from 'react-redux'
+
 import ProgressBar from './reusable/ProgressBar.js'
 import TextArea from './reusable/TextArea.js'
 import Button from './reusable/Button.js'
-import testRestaurants from '../data/testRestaurants.js'
-import { connect } from 'react-redux'
 
-const campaignPage = ({_id, campaign}) => (
+const CampaignPage = ({_id, campaign}) => (
   <div className = {css(styles.root)}>
     <div className = {css(styles.restaurantImage)}>
       <img src={campaign.restaurant.imageURL} className = {css(styles.image)}/>
@@ -22,7 +21,7 @@ const campaignPage = ({_id, campaign}) => (
       </div>
       <div className={css(styles.dirhams)}>{campaign.amountRaised+"/"+campaign.restaurant.minimumOrder+"AED"}</div>
     </div>
-    <div className={classNames('separator',css(styles.separator))}/>
+    <div className={['separator',css(styles.separator)].join(' ')}/>
     <TextArea placeholder="Add Order" passedStyle={styles.TextArea}/>
     <Button name="Submit" passedStyle={styles.Button} onClick={()=>{alert("Clicked!")}}/>
   </div>
@@ -31,7 +30,8 @@ const campaignPage = ({_id, campaign}) => (
 const mapStateToProps = (state, ownProps) => ({
   campaign: state.activeCampaigns.find((c) => (c._id === ownProps._id))
 })
-export default connect(mapStateToProps)(campaignPage)
+
+export default connect(mapStateToProps)(CampaignPage)
 
 const styles = StyleSheet.create({
   root: {

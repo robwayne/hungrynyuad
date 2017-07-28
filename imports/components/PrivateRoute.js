@@ -1,24 +1,25 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Route, Redirect } from 'react-router-dom'
 
-const PrivateRoute = ({ component: Component, loggedIn, ...rest }) => (
+// Private Route Display Component
+// Redirects to login if not authorized
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
   <Route {...rest} render={props => (
-    loggedIn ? (
+    isAuthenticated ? (
       <Component {...props}/>
     ) : (
-      <Redirect to={{
-        pathname: '/login',
-        state: { from: props.location }
-      }}/>
+      <Redirect to={{pathname: '/login', state: { from: props.location }}}/>
     )
   )}/>
 )
 
-const mapStateToProps = (state, ownProps) => {
+//Links props from redux
+const mapStateToProps = state => {
   return {
-    loggedIn: (state.tokens.idToken !== '' && state.tokens.accessToken !== '')
+    isAuthenticated: (state.tokens.idToken !== '' && state.tokens.accessToken !== '')
   }
 }
 
+// Wrapped component
 export default connect(mapStateToProps)(PrivateRoute)

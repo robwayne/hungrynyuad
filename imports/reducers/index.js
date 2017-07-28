@@ -1,12 +1,16 @@
 import { combineReducers } from 'redux'
 import tokens from './tokens'
 import user from './user'
-import activeCampaigns from './activeCampaigns'
+import campaigns from './campaigns'
+import messages from './messages'
+import ui from './ui'
 
 const rootReducer = combineReducers({
   tokens,
   user,
-  activeCampaigns,
+  campaigns,
+  messages,
+  ui
 })
 
 export default rootReducer

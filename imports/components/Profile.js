@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
-import { getAccessToken } from '../utils/AuthService.js'
+import React from 'react'
 import { connect } from 'react-redux'
 
+import { getAccessToken } from '../utils/AuthService.js'
+
+// Profile Display Component
 const Profile = ({_id, name, email, reputation}) => (
   <div>
     <div>{"Id: "+_id}</div>
@@ -11,6 +13,7 @@ const Profile = ({_id, name, email, reputation}) => (
   </div>
 )
 
+// Links props from redux
 const mapStateToProps = (state, ownProps) => {
   return {
     _id: state.user.basicInformation._id,
@@ -20,4 +23,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+// Wrapped component
 export default connect(mapStateToProps)(Profile)

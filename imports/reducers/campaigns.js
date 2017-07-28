@@ -1,8 +1,8 @@
-import { ADD_ACTIVE_CAMPAIGN, REMOVE_ACTIVE_CAMPAIGN } from '../actions/activeCampaigns'
+import { ADD_CAMPAIGN, REMOVE_CAMPAIGN } from '../actions/campaigns'
 
-const activeCampaigns = (state = [], action) => {
+const campaigns = (state = [], action) => {
   switch (action.type) {
-    case ADD_ACTIVE_CAMPAIGN:
+    case ADD_CAMPAIGN:
       return [
         ...state,
         {
@@ -22,7 +22,7 @@ const activeCampaigns = (state = [], action) => {
           },
         }
       ]
-    case REMOVE_ACTIVE_CAMPAIGN:
+    case REMOVE_CAMPAIGN:
       return [
         state.filter((campaign) => (campaign._id !== action._id))
       ]
@@ -31,4 +31,4 @@ const activeCampaigns = (state = [], action) => {
   }
 }
 
-export default activeCampaigns
+export default campaigns
