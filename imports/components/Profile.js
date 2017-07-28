@@ -1,25 +1,23 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { getAccessToken } from '../utils/AuthService.js'
+import { connect } from 'react-redux'
 
-class Profile extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: ""
-    }
-  }
+const Profile = ({_id, name, email, reputation}) => (
+  <div>
+    <div>{"Id: "+_id}</div>
+    <div>{"Name: "+name}</div>
+    <div>{"Email: "+email}</div>
+    <div>{"Reputation: "+reputation}</div>
+  </div>
+)
 
-  componentDidMount() {
-    axios.get('https://jonahjoughin.auth0.com/userinfo', {'headers': { 'Authorization': "Bearer "+getAccessToken()}})
-    .then(res => {
-      this.setState({"email":res.data.email})
-      console.log("Res",res)
-    });
-  }
-  render() {
-    return <div>{"Email: "+this.state.email}</div>
+const mapStateToProps = (state, ownProps) => {
+  return {
+    _id: state.user.basicInformation._id,
+    name: state.user.basicInformation.name,
+    email: state.user.basicInformation.email,
+    reputation: state.user.basicInformation.reputation,
   }
 }
 
-export default Profile
+export default connect(mapStateToProps)(Profile)

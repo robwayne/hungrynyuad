@@ -21,10 +21,10 @@ class Campaigns extends Component {
     this.setState({filter: event.target.value});
   }
   filterCampaigns(campaign) {
-    const restaurant=campaign.restaurant.toLowerCase()
-    const host = campaign.host.toLowerCase()
+    const restaurantName=campaign.restaurant.name.toLowerCase()
+    const hostName = campaign.host.name.toLowerCase()
     const match = this.state.filter.toLowerCase()
-    return (restaurant.indexOf(match) !== -1 || host.indexOf(match) !== -1);
+    return (restaurantName.indexOf(match) !== -1 || hostName.indexOf(match) !== -1);
   }
   render() {
     return (
@@ -41,13 +41,10 @@ class Campaigns extends Component {
       />
       <Route
         path = {this.props.match.url+"/:id"}
-        render={({match})=>{
-          const c = testCampaigns.find((c) => (c._id.toString() === (match.params.id)))
-          return (<CampaignPage
-            key={c._id}
-            campaign={c}
+        render={({match})=>(<CampaignPage
+            _id={match.params.id}
           />)
-        }}/>
+        }/>
       </Switch>
     )
   }

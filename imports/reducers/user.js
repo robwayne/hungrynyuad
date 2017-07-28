@@ -7,24 +7,24 @@ const basicInformationDefaultState = {
   email: '',
   reputation: 0,
   favouriteRestaurants: [],
-  pastOrders: [].
+  pastOrders: [],
 }
 
-const basicInformation = (state = basicInformationDefaultState, action) {
+const basicInformation = (state = basicInformationDefaultState, action) => {
   switch(action.type) {
     case 'SET_USER_INFORMATION':
-      return {
+      return ({
         _id: coalesce(action._id, state._id),
         name: coalesce(action.name, state.name),
         email: coalesce(action.email, state.email),
         reputation: coalesce(action.reputation, state.reputation),
-      }
+      })
     default:
       return state
   }
 }
 
-const favouriteRestaurants = (state = [], action) {
+const favouriteRestaurants = (state = [], action) => {
   switch(action.type) {
     case 'ADD_FAVOURITE_RESTAURANT':
       return [

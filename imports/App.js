@@ -18,7 +18,7 @@ export default () => (
       <Route
         path = "/login"
         component={Login}/>
-      <PrivateRoute path = "/" component={Private} authorized = {loggedIn()}/>
+      <PrivateRoute path = "/" component={Private}/>
     </Switch>
   </div>
 )

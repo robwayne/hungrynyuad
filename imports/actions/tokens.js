@@ -7,14 +7,14 @@ export const setTokens = (accessToken, idToken) => ({
     idToken: idToken,
 })
 export const setIDToken = (idToken) => ({
-  type: SET_TOKENS
-  idToken: idToken
+  type: SET_TOKENS,
+  idToken: idToken,
 })
 export const setAccessToken = (accessToken) => ({
-  type: SET_TOKENS
-  accessToken: accessToken
+  type: SET_TOKENS,
+  accessToken: accessToken,
 })
 
 export const deleteTokens = () => ({
-  type: DELETE_TOKENS
+  type: DELETE_TOKENS,
 })

@@ -6,28 +6,32 @@ import ProgressBar from './reusable/ProgressBar.js'
 import TextArea from './reusable/TextArea.js'
 import Button from './reusable/Button.js'
 import testRestaurants from '../data/testRestaurants.js'
+import { connect } from 'react-redux'
 
-export default ({campaign}) => {
-  const imageURL = testRestaurants.find((r) => (r.name === (campaign.restaurant))).imageURL
-  return (
+const campaignPage = ({_id, campaign}) => (
   <div className = {css(styles.root)}>
     <div className = {css(styles.restaurantImage)}>
-      <img src={imageURL} className = {css(styles.image)}/>
+      <img src={campaign.restaurant.imageURL} className = {css(styles.image)}/>
     </div>
-    <div className={css(styles.restaurant)}>{campaign.restaurant}</div>
-    <div className={css(styles.host)}>{campaign.host + " | " + campaign.stars.toString() + " ★"}</div>
-    <div className={css(styles.time)}>{"Order closes " + moment(campaign.time).fromNow()}</div>
+    <div className={css(styles.restaurant)}>{campaign.restaurant.name}</div>
+    <div className={css(styles.host)}>{campaign.host.name + " | " + campaign.host.reputation.toString() + " ★"}</div>
+    <div className={css(styles.time)}>{"Order closes " + moment(campaign.closesAt).fromNow()}</div>
     <div className={css(styles.flexContainer)}>
       <div className={css(styles.progressWrapper)}>
-        <ProgressBar progress={campaign.progress/campaign.total} passedStyle={styles.progressBar}/>
+        <ProgressBar progress={campaign.amountRaised/campaign.restaurant.minimumOrder} passedStyle={styles.progressBar}/>
       </div>
-      <div className={css(styles.dirhams)}>{campaign.progress+"/"+campaign.total+"AED"}</div>
+      <div className={css(styles.dirhams)}>{campaign.amountRaised+"/"+campaign.restaurant.minimumOrder+"AED"}</div>
     </div>
     <div className={classNames('separator',css(styles.separator))}/>
     <TextArea placeholder="Add Order" passedStyle={styles.TextArea}/>
     <Button name="Submit" passedStyle={styles.Button} onClick={()=>{alert("Clicked!")}}/>
   </div>
-)}
+)
+
+const mapStateToProps = (state, ownProps) => ({
+  campaign: state.activeCampaigns.find((c) => (c._id === ownProps._id))
+})
+export default connect(mapStateToProps)(campaignPage)
 
 const styles = StyleSheet.create({
   root: {

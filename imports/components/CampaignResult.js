@@ -8,14 +8,14 @@ import { Link } from 'react-router-dom'
 export default ({campaign}) => (
   <Link to={'/campaigns/'+campaign._id.toString()}>
     <div className = {css(styles.root)}>
-        <div className={css(styles.restaurant)}>{campaign.restaurant}</div>
-        <div className={css(styles.host)}>{campaign.host + " | " + campaign.stars.toString() + " ★"}</div>
-        <div className={css(styles.time)}>{moment(campaign.time).fromNow()}</div>
+        <div className={css(styles.restaurant)}>{campaign.restaurant.name}</div>
+        <div className={css(styles.host)}>{campaign.host.name + " | " + campaign.host.reputation.toString() + " ★"}</div>
+        <div className={css(styles.time)}>{moment(campaign.closesAt).fromNow()}</div>
         <div className={css(styles.flexContainer)}>
           <div className={css(styles.progressWrapper)}>
-            <ProgressBar progress={campaign.progress/campaign.total} passedStyle={styles.progressBar}/>
+            <ProgressBar progress={campaign.amountRaised/campaign.restaurant.minimumOrder} passedStyle={styles.progressBar}/>
           </div>
-          <div className={css(styles.dirhams)}>{campaign.progress+"/"+campaign.total+"AED"}</div>
+          <div className={css(styles.dirhams)}>{campaign.amountRaised+"/"+campaign.restaurant.minimumOrder+"AED"}</div>
         </div>
         <div className={classNames('separator',css(styles.separator))}/>
     </div>
