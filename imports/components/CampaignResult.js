@@ -26,7 +26,6 @@ export default ({campaign}) => (
 const styles = StyleSheet.create({
   root: {
     backgroundColor: 'rgba(255,255,255,0.0)',
-    height: '85px',
     width: '100%',
     position: 'relative',
     borderRadius: theme.borderRadius,
@@ -43,17 +42,16 @@ const styles = StyleSheet.create({
     fontFamily: theme.primaryFontFace,
     fontWeight: 700,
     fontSize: theme.fontSizeMedium,
-    position: 'absolute',
-    left: '10px',
-    top: '8px'
+    position: 'relative',
+    maxWidth: '25%',
+    padding: '8px 0px 0px 0px',
   },
   host: {
     color: theme.lightTransparent,
     fontFamily: theme.primaryFontFace,
     fontSize: theme.fontSizeSmall,
-    position: 'absolute',
-    left: '10px',
-    top: '36px',
+    position: 'relative',
+    padding: '4px 0px 0px 0px',
   },
   time: {
     color: theme.lightTransparent,
@@ -65,8 +63,7 @@ const styles = StyleSheet.create({
   },
   flexContainer: {
     position: 'relative',
-    left: '0px',
-    top: '58px',
+    top: '3px',
     width: '100%',
     display: 'flex',
     alignItems: 'center',
@@ -86,11 +83,9 @@ const styles = StyleSheet.create({
   separator: {
     backgroundColor: theme.mediumTransparent,
     transition: theme.opacityTransition,
-    position: 'absolute',
-    left: '10px',
-    right: '10px',
-    bottom: '0px',
-    height: '1px',
+    position: 'relative',
+    top: '5px',
+    height: '1px'
   },
   progressBar: {
     height: '6px',

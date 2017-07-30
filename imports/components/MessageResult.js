@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     color: "#FFF",
     position: 'absolute',
+    maxWidth: '50%',
     left: '10px',
     top: '8px'
   },

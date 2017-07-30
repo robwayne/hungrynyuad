@@ -28,7 +28,7 @@ const CampaignPage = ({_id, campaign}) => (
 )
 
 const mapStateToProps = (state, ownProps) => ({
-  campaign: state.activeCampaigns.find((c) => (c._id === ownProps._id))
+  campaign: state.campaigns.find((c) => (c._id === ownProps._id))
 })
 
 export default connect(mapStateToProps)(CampaignPage)

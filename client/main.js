@@ -7,10 +7,28 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import logger from 'redux-logger'
 
 import App from '../imports/App.js';
-import { getIDToken, getAccessToken } from '../imports/utils/AuthService.js'
+import { getIDToken, getAccessToken, setIDToken, setAccessToken } from '../imports/utils/AuthService.js'
 import rootReducer from '../imports/reducers'
+import { coalesce } from '../imports/utils'
 
-let store = createStore(rootReducer, applyMiddleware(logger))
+const initialState = {
+  tokens: {
+    accessToken: coalesce(getAccessToken(), ''),
+    idToken: coalesce(getIDToken(), ''),
+  },
+}
+
+let store = createStore(rootReducer, initialState, applyMiddleware(logger))
+let currentTokens
+const saveTokens = (() => {
+  let previousTokens = currentTokens
+  let currentTokens = store.getState().tokens
+  if (previousTokens !== currentTokens) {
+    setAccessToken(currentTokens.accessToken)
+    setIDToken(currentTokens.idToken)
+  }
+})
+store.subscribe(saveTokens)
 
 const ClientApp = () => (
   <Provider store={store}>
