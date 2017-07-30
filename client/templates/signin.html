@@ -8,14 +8,14 @@
       <div class="form-group">
         <div class="input-group pt-3 justify-content-center">
           <span class="input-group-addon {{#if fieldHasErrors 'email'}} input-error {{else}} text-purple {{/if}}" id="email-addon" ><i class="fa fa-envelope" aria-hidden="true"></i></span>
-          <input type="email" class="form-control no-border {{#if fieldHasErrors 'email'}} input-error {{/if}}"  id="emailInput" aria-describedby="email-addon" placeholder="Email"/>
+          <input type="email" class="form-control no-border signin-input {{#if fieldHasErrors 'email'}} input-error {{/if}}"  id="emailInput" aria-describedby="email-addon" placeholder="Email"/>
         </div>
         {{{renderHtml "error" "email"}}}
       </div>
       <div class="form-group">
         <div class="input-group pt-3 justify-content-center">
           <span class="input-group-addon {{#if fieldHasErrors 'loginPassword'}} input-error {{else}} text-purple {{/if}}" id="password-addon" ><i class="fa fa-lock" aria-hidden="true"></i></span>
-          <input type="password" class="form-control no-border {{#if fieldHasErrors 'loginPassword'}} input-error {{/if}}" id="passwordInput" aria-describedby="password-addon" placeholder="Password" />
+          <input type="password" class="form-control no-border signin-input {{#if fieldHasErrors 'loginPassword'}} input-error {{/if}}" id="passwordInput" aria-describedby="password-addon" placeholder="Password" />
         </div>
         {{{ renderHtml "error" "loginPassword"}}}
       </div>
