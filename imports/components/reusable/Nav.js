@@ -4,21 +4,11 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import { NavLink } from 'react-router-dom'
 import { setTokens } from '../../actions/tokens.js'
 
-const NavUnwrapped = ({children, onLogout}) => (
+export const Nav = ({children}) => (
   <div className={css(styles.nav)}>
     {children}
-    <div onClick={onLogout}>Logout</div>
   </div>
 )
-
-const mapDispatchToProps = dispatch => ({
-  onLogout: event => {
-    console.log("Logging out")
-    dispatch(setTokens('',''))
-  }
-})
-
-export const Nav = connect(null, mapDispatchToProps)(NavUnwrapped)
 
 export const NavItem =  ({ name, link, exact=false, notification=false }) => (
   <div className={css(styles.navItemRoot)}>

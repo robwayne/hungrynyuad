@@ -2,11 +2,12 @@ export const SET_USER_INFORMATION = 'SET_USER_INFORMATION'
 export const ADD_FAVOURITE_RESTAURANT = 'ADD_FAVOURITE_RESTAURANT'
 export const REMOVE_FAVOURITE_RESTAURANT = 'REMOVE_FAVOURITE_RESTAURANT'
 
-export const setUserInformation = (_id, name, email, reputation) => ({
+export const setUserInformation = (_id, name, email, imageURL, reputation) => ({
   type: SET_USER_INFORMATION,
   _id: _id,
   name: name,
   email: email,
+  imageURL: imageURL,
   reputation: reputation,
 })
 

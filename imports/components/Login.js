@@ -5,12 +5,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import Button from './reusable/Button.js'
+import button from './reusable/Button.js'
 import { theme } from '../styles'
-import { authHeader } from '../utils'
+import { authHeader, coalesce } from '../utils'
 import { loggedIn, setAccessToken, setIDToken, getAccessToken, getIDToken } from '../utils/AuthService.js';
 import { setTokens } from '../actions/tokens'
-import { setUserInformation } from '../actions/user'
+
 
 // Login Display Component
 const Login = ({isAuthenticated, onAuth}) => {
@@ -30,8 +30,8 @@ const Login = ({isAuthenticated, onAuth}) => {
       ? (<Redirect to='/campaigns'/>)
       : (<div className={css(styles.root)}>
           <h1 className={css(styles.title)}>Hungry at NYUAD</h1>
-          <Button name="Login" passedStyle={styles.Button} onClick={login}/>
-          <Button name="Signup" passedStyle={styles.Button} onClick={signup}/>
+          <Button onClick={login}>Log In</Button>
+          <Button onClick={signup}>Sign Up</Button>
         </div>)
   )
 }
@@ -48,10 +48,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onAuth: (auth) => {
       dispatch(setTokens(auth.accessToken, auth.idToken))
-      axios.get('https://jonahjoughin.auth0.com/userinfo', authHeader(auth.accessToken))
-        .then((res) => {
-          dispatch(setUserInformation(res.data.user_id, res.data.name, "email", 1))
-        })
     }
   }
 }
@@ -69,6 +65,16 @@ const signupOptions =  {
   languageDictionary: { title: "Hungry at NYUAD" },
   allowLogin: false
 }
+const Button = button.extend`
+  width: 500px;
+  margin: 15px 0px;
+  background-color: rgba(255,255,255,0.25);
+  color: #FFF;
+  &:hover {
+    background-color: #FFF;
+    color: #555;
+  }
+`
 
 const styles = StyleSheet.create({
   root: {
@@ -93,15 +99,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     textAlign: 'center',
     margin: '20px 0px',
-  },
-  Button: {
-    width: "500px",
-    margin: "15px 0px",
-    backgroundColor: theme.mediumTransparent,
-    color: '#FFF',
-    ':hover': {
-      backgroundColor: "#FFF",
-      color: "#555"
-    }
   }
 })

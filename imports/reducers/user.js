@@ -5,6 +5,7 @@ const basicInformationDefaultState = {
   _id: '',
   name: '',
   email: '',
+  imageURL: '',
   reputation: 0,
   favouriteRestaurants: [],
   pastOrders: [],
@@ -17,6 +18,7 @@ const basicInformation = (state = basicInformationDefaultState, action) => {
         _id: coalesce(action._id, state._id),
         name: coalesce(action.name, state.name),
         email: coalesce(action.email, state.email),
+        imageURL: coalesce(action.imageURL, state.imageURL),
         reputation: coalesce(action.reputation, state.reputation),
       })
     default:
