@@ -1,17 +1,21 @@
 <template name="settings">
   <div class="settings-container">
     <div class="settings-container-item inactive">
-      <label class="text-muted mb-2">Robert Gordon</label>
+      <label class="text-muted mb-2">{{userProfile.name}}</label>
     </div>
     <div class="settings-container-item profile-btn">
-      <p>Profile</p>
+      <a href="/saved" class="clickable-anchor-item pt-4">
+        <span class="mr-2 text-purple"><i aria-hidden="true" class="fa fa-id-card-o sm-icon"></i></span> My Profile
+      </a>
       <span><i class="fa fa-angle-right md-icon"></i></span>
     </div>
     <div class="settings-container-item favorites-btn">
-      <p>Favorites</p>
+      <a href="/saved" class="clickable-anchor-item pt-4">
+        <span class="mr-2 text-purple"><i aria-hidden="true" class="fa fa-star sm-icon"></i></span> My Favorites
+      </a>
       <span><i class="fa fa-angle-right md-icon"></i></span>
     </div>
-    <div class="settings-container-item">
+    <div class="settings-container-item footer">
       <button class="btn btn-danger btn-logout w-100">
         <i aria-hidden="true" class="fa fa-sign-out"></i> Logout
       </button>

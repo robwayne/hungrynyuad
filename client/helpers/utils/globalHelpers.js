@@ -44,3 +44,7 @@ Template.registerHelper('renderHtml', (type, field) => {
 Template.registerHelper('routeName', ()=>{
   return FlowRouter.getRouteName();
 });
+
+Template.registerHelper('userProfile', ()=>{
+  return Meteor.user().profile;
+});

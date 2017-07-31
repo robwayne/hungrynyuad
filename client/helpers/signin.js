@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Tracker } from 'meteor/tracker';
 import { Session } from 'meteor/session';
-import { loginSchema, getErrorMessage } from '/client/helpers/schemas/userAccountsSchema.js';
+import { loginSchema, getErrorMessage } from '/lib/schemas/userAccountsSchema.js';
 
 
 Template.signin.onCreated(function signinOnCreated(){

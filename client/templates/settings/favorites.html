@@ -1,3 +1,36 @@
 <template name="favorites">
-  Favorites
+  <div class="content">
+    <section class="info-card">
+      <div class="info-card-header"><span>Pick your favorite restaurants</span></div>
+      <hr/>
+      <div class="info-card-body">
+        <p>Add your favorite restaurants and never miss out on any of their orders.</p>
+      </div>
+    </section>
+    <section class="search-area">
+      <div class="input-group icon-input-group">
+        <span id="search-addon" class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <input type="text" aria-described-by="search-addon" class="favorites-search no-border" placeholder="Find your favorite restaurant...">
+      </div>
+    </section>
+    <section class="restaurant-list">
+        {{#if searching}}
+          <div class="spinner loader"></div>
+        {{else}}
+          {{#each restaurants}}
+            <div class="restaurant-list-item">
+              <div class="restaurant-info">
+                <img src="{{banner_img_url}}" alt="logo" class="restaurant-pic">
+                <p class="restaurant-name">{{name}}</p>
+              </div>
+              <div class="favorite-button">
+                <div class="favorite-btn fa {{#if favorited}} fa-star gold animate-spin {{else}} fa-star-o greyed animate-spin-reverse{{/if}} md-icon"></div>
+              </div>
+            </div>
+            {{else}}
+              <p class="alert alert-warning">No restaurants found to match '{{query}}'</p>
+          {{/each}}
+        {{/if}}
+    </section>
+  </div>
 </template>

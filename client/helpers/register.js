@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating'
 import { Meteor } from 'meteor/meteor';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Session } from 'meteor/session';
-import {getErrorMessage, registerAccountSchema } from '/client/helpers/schemas/userAccountsSchema.js';
+import {getErrorMessage, registerAccountSchema } from '/lib/schemas/userAccountsSchema.js';
 
 Template.register.onCreated(function registerOnCreated(){
   this.state = new ReactiveDict();
@@ -19,7 +19,6 @@ Template.register.events({
     const email = $('#emailInput').val().trim();
     const password = $('#passwordInput').val().trim();
     const confirmPassword = $('#confirmPasswordInput').val().trim();
-    console.log('pw: ',password, 'cpw: ', confirmPassword);
 
     accountDetails = {
       name: name,

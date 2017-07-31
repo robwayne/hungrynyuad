@@ -1,10 +1,52 @@
 <template name="slideoutMenu">
-  <div class="fixed-top slideout-menu-nav">
-    <div class="settings-nav-item h-100">
-      <h5 class="ml-2 mt-1">Robert Gordon</h5>
+  {{#if currentUser}}
+    <div class="fixed-top slideout-menu-nav">
+      <div class="settings-nav-item h-100">
+        <a href="{{pathFor 'Profile'}}" style="color:black"><img src="{{userProfile.avatar_url}}" class="user-pic"></a>
+        <a href="{{pathFor 'Profile'}}" style="color:black"><h5 class="ml-2 mt-2">{{userProfile.name}}</h5></a>
+      </div>
+      <div class="settings-nav-item mr-2 mt-2">
+        <a href="{{pathFor 'Settings'}}" style="color:black"><i aria-hidden="true" class="fa fa-cog md-icon"></i></a>
+      </div>
     </div>
-    <div class="settings-nav-item mr-2">
-      <a href="{{pathFor 'Settings'}}" style="color:black"><i aria-hidden="true" class="fa fa-cog md-icon"></i></a>
+    <div id="slideout-middle">
+      <div class="figure-caption">
+        <h6 class="ml-2 text-muted">Favorites and Saved</h6>
+      </div>
+      <div class="clickable-list-item">
+        <a href="/notifications" class="clickable-anchor-item">
+          <span class="mr-1"><i aria-hidden="true" class="fa fa-bell-o"></i></span> Notifications
+        </a>
+        <span class="mr-3"><i aria-hidden="true" class="fa fa-angle-right md-icon"></i></span>
+      </div>
+      <div class="clickable-list-item">
+        <a href="/saved" class="clickable-anchor-item">
+          <span class="mr-2"><i aria-hidden="true" class="fa fa-bookmark-o"></i></span> Saved Campaigns
+        </a>
+        <span class="mr-3"><i aria-hidden="true" class="fa fa-angle-right md-icon"></i></span>
+      </div>
+
     </div>
+  {{else}}
+    <div class="fixed-top slideout-menu-nav">
+      <div class="settings-nav-item h-100">
+        <button class="btn btn-success border-0 ml-2 mt-2"><i aria-hidden="true" class="fa fa-sign-in"></i> Sign In</button>
+      </div>
+      <div class="settings-nav-item mr-2 mt-2">
+        <a href="{{pathFor 'Sign In'}}" class="text-success"><i aria-hidden="true" class="fa fa-user md-icon"></i></a>
+      </div>
+    </div>
+  {{/if}}
+  <div class=" {{#unless currentUser}} position {{/unless}} slideout-restaurant-list">
+    <div class="figure-caption">
+      <h6 class="ml-2 text-muted">All Restaurants</h6>
+    </div>
+    {{#each restaurants}}
+      <div class="slideout-restaurant-list-item">
+        <img src="{{banner_img_url}}" alt="logo" class="restaurant-pic">
+        <p class="mb-0">{{name}}</p>
+      </div>
+    {{/each}}
+
   </div>
 </template>
