@@ -10,7 +10,7 @@ Accounts.onCreateUser((options, user) => {
     };
   }
   else if (user.services.facebook){ //else if user signs-up via facebook
-    let avatarUrl = "http://graph.facebook.com/"+user.services.facebook.id+"/picture?type=small"; //get user's facebook profile pic url
+    let avatarUrl = "http://graph.facebook.com/"+user.services.facebook.id+"/picture?type=large"; //get user's facebook profile pic url
     profile = {
       name: user.services.facebook.name,
       email: user.services.facebook.email,

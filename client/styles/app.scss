@@ -1,6 +1,6 @@
 
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|PT+Sans|Roboto+Condensed|Alegreya+Sans+SC:500|Alegreya+Sans:500');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|PT+Sans|Roboto+Condensed|Alegreya+Sans+SC:500|Alegreya+Sans:500|Montserrat');
 /*------------------------------USER STYLES------------------------------*/
 @import "./login.scss";
 @import "./navigation.scss";
@@ -18,6 +18,12 @@ $nyu-purple: #58108e;
 
 .bg-purple{
   background: $nyu-purple;
+}
+
+
+.active{
+  font-size:1.35em !important;
+  font-weight:500 !important;
 }
 
 .md-icon {

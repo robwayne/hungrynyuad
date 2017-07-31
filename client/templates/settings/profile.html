@@ -1,3 +1,18 @@
 <template name="profile">
-  Profile
+  <section class="profile-top-section">
+    <div class="back-button">
+      <button class="btn btn-link text-white" type="button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</button>
+    </div>
+    <div class="profile-info-section">
+      <div class="profile-info">
+        <img src="{{userProfile.avatar_url}}" alt="Profile Picture" class="user-profile-pic">
+        <p class="user-profile-name">{{userProfile.name}}</p>
+      </div>
+      <div class="profile-links clearfix">
+        <a href="#" class="profile-link active pull-left"> Notifications</a>
+        <a href="{{pathFor 'Favorites'}}" class="profile-link pull-right"> Favorites</a>
+      </div>
+    </div>
+  </section>
+  <section class="content-section"></section>
 </template>
