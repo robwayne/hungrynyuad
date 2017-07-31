@@ -43,3 +43,6 @@ cfs:gridfs
 cfs:filesystem
 aldeed:collection2-core
 check
+meteor-tool
+react
+react-meteor-data
