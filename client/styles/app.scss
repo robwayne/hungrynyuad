@@ -267,8 +267,8 @@ p.text-center.feedback-message {
 }
 
 .spinner{
-  width:30px;
-  height:30px;
+  width:20px;
+  height:20px;
   border-radius:50%;
   display:inline-block;
   background:#eee;
@@ -279,8 +279,8 @@ p.text-center.feedback-message {
   &:before, &:after{
     content: '';
     display:block;
-    width:30px;
-    height:30px;
+    width:20px;
+    height:20px;
     border-radius:50%;
   }
 }
@@ -288,11 +288,11 @@ p.text-center.feedback-message {
 .loader:after{
   content:'';
   position:relative;
-  top:-30px;
+  top:-20px;
   left:0px;
 
 
-  border:3px solid transparent;
+  border:1px solid transparent;
   border-top-color:orangered;
   border-bottom-color:orangered;
   animation:spin 900ms linear infinite;

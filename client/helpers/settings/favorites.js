@@ -37,7 +37,6 @@ Template.favorites.helpers({
 
 Template.favorites.events({
   'click .favorite-button':function(event, template){
-    console.log(this._id);
     Meteor.call('updateUserFavoriteRestaurants',this._id);
   },
 
