@@ -4,7 +4,7 @@ Meteor.startup(() => {
     const dummyRestaurants = [
       {
         name : "Biryani Express",
-        banner_img_url : "/public/images/biryaniexpress.png",
+        banner_img_url : "/images/biryaniexpress.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -15,7 +15,7 @@ Meteor.startup(() => {
       },
       {
         name : "Burger King",
-        banner_img_url : "/public/images/burgerking.png",
+        banner_img_url : "/images/burgerking.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -26,7 +26,7 @@ Meteor.startup(() => {
       },
       {
         name : "Cha Time",
-        banner_img_url : "/public/images/chatime.jpg",
+        banner_img_url : "/images/chatime.jpg",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -37,7 +37,7 @@ Meteor.startup(() => {
       },
       {
         name : "Hardee's",
-        banner_img_url : "/public/images/hardees.jpg",
+        banner_img_url : "/images/hardees.jpg",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -48,7 +48,7 @@ Meteor.startup(() => {
       },
       {
         name : "KFC",
-        banner_img_url : "/public/images/kfc.png",
+        banner_img_url : "/images/kfc.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -59,7 +59,7 @@ Meteor.startup(() => {
       },
       {
         name : "McDonald's",
-        banner_img_url : "/public/images/mcdonalds.png",
+        banner_img_url : "/images/mcdonalds.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -70,7 +70,7 @@ Meteor.startup(() => {
       },
       {
         name : "Papa Murphy's",
-        banner_img_url : "/public/images/papamurphys.png",
+        banner_img_url : "/images/papamurphys.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -81,7 +81,7 @@ Meteor.startup(() => {
       },
       {
         name : "Pizza Hut",
-        banner_img_url : "/public/images/pizzahut.png",
+        banner_img_url : "/images/pizzahut.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -92,7 +92,7 @@ Meteor.startup(() => {
       },
       {
         name : "Popeyes",
-        banner_img_url : "/public/images/popeyes.png",
+        banner_img_url : "/images/popeyes.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -103,7 +103,7 @@ Meteor.startup(() => {
       },
       {
         name : "Salt",
-        banner_img_url : "/public/images/salt.png",
+        banner_img_url : "/images/salt.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
@@ -114,7 +114,7 @@ Meteor.startup(() => {
       },
       {
         name : "Subway",
-        banner_img_url : "/public/images/subway.png",
+        banner_img_url : "/images/subway.png",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
