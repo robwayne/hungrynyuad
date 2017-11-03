@@ -18,7 +18,8 @@ Template.favorites.onCreated(function(){
 
 Template.favorites.helpers({
   'restaurants':function(){
-    return Restaurants.find({}, {sort:{name:1}});
+    let userFavoriteRestaurants = Meteor.user().profile.favorites.restaurant_ids;
+    return Restaurants.find({_id:{$nin:userFavoriteRestaurants}}, {sort:{name:1}});
   },
   'favorited':function(){
     const userFavoriteRestaurants = Meteor.user().profile.favorites.restaurant_ids;
@@ -32,7 +33,17 @@ Template.favorites.helpers({
   },
   'query':function(){
     return Template.instance().searchQuery.get();
-  }
+  },
+  'userFavoriteRestaurants':function(){
+    let userFavoriteRestaurants = Meteor.user().profile.favorites.restaurant_ids;
+    return Restaurants.find({_id:{$in:userFavoriteRestaurants}});
+  },
+  'favoriteRestaurantCount':function(){
+    return Meteor.user().profile.favorites.restaurant_ids.length;
+  },
+  'userHasFavoriteRestaurants':function(){
+    return Meteor.user().profile.favorites.restaurant_ids.length > 0;
+  },
 });
 
 Template.favorites.events({
@@ -51,8 +62,6 @@ Template.favorites.events({
     if(value === ''){
       Template.instance().searchQuery.set(value);
     }
-
-
   }
 });
  

@@ -1,0 +1,45 @@
+<template name="userAccount">
+  {{#if currentUser}}
+    <div class="account-content">
+      <label class="section-label"> Account Details</label>
+      <section class="account-details-section">
+        <div class="edit-user-details">
+          <label class="input-label">Name</label>
+          <input type="text" class="form-control edit-user-name no-border" value="{{userProfile.name}}">
+        </div>
+        <div class="edit-user-details">
+          <label class="input-label">Email</label>
+          <input type="text" class="form-control edit-user-email no-border" value="{{userProfile.email}}">
+        </div>
+      </section>
+      <label class="section-label">Change Password</label>
+      <section class="change-password-section">
+        <div class="edit-user-details">
+          <label class="input-label">Old Password</label>
+          <input type="text" class="form-control edit-old-password no-border" placeholder="Enter old password">
+        </div>
+        <div class="edit-user-details">
+          <label class="input-label">New Password</label>
+          <input type="text" class="form-control edit-new-password no-border" placeholder="Minimum 7 characters">
+        </div>
+      </section>
+
+      <div class="buttons-container">
+        {{#if editing}}
+          {{#transition in="fadeInLeft" out="fadeOutLeft"}}
+            <button type="button" class="btn btn-success save-button">
+              <i class="fa fa-floppy-o sm-icon"></i>
+              &nbsp;Save
+            </button>
+          {{/transition}}
+        {{/if}}
+        <button type="button" class="btn logout-button" disabled="{{editing}}">
+          <i class="fa fa-sign-out sm-icon" aria-hidden="true"></i>
+          &nbsp;Logout
+        </button>
+      </div>
+    </div>
+  {{else}}
+    <!-- Add Please Login template -->
+  {{/if}}
+</template>

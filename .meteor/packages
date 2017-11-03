@@ -43,3 +43,4 @@ cfs:gridfs
 cfs:filesystem
 aldeed:collection2-core
 check
+webtempest:animate

@@ -12,7 +12,7 @@ Template.settings.events({
   },
   'click .profile-btn'(event){
     event.preventDefault();
-    FlowRouter.go(FlowRouter.path('Profile'));
+    FlowRouter.go(FlowRouter.path('Register'));
   },
   'click .favorites-btn'(event){
     event.preventDefault();

@@ -1,0 +1,74 @@
+//@import './profile.scss';
+
+$smooth-black: #1d242c;
+
+html, body, #__blaze-root{
+  background: #eee;
+}
+
+.account-content{
+  width:100%;
+  height:100%;
+  padding-top:22%;
+
+  .account-details-section{
+    margin-bottom:20px;
+  }
+
+  .account-details-section, .change-password-section{
+    width:100%;
+    background:white;
+    border-top:1px solid #fff;
+
+    .edit-user-details{
+      width:100%;
+      height:50px;
+      display:flex;
+      border-bottom: 1px solid #eee;
+
+      .edit-user-name, .edit-user-email, .edit-old-password, .edit-new-password{
+        width:80%;
+        height:100%;
+        background:inherit;
+        font-family: 'Montserrat',sans-serif;
+        font-size:1.15em;
+        color:#393939;
+      }
+
+      .input-label{
+        width:22%;
+        height:100%;
+        background:inherit;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-size:1.1em;
+        font-family:'Open Sans', sans-serif;
+        color:#828282;
+      }
+
+    }
+  }
+}
+
+.buttons-container{
+  width: 100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:30px;
+
+  .logout-button,.save-button{
+    width: 80px;
+    height:35px;
+    margin:5px;
+    font-family:'Montserrat',sans-serif;
+    font-size: 1.1em;
+  }
+
+  .logout-button{
+    background: $smooth-black;
+    color:#fff;
+  }
+}

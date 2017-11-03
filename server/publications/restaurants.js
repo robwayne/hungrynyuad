@@ -7,16 +7,13 @@ Meteor.publish('restaurants', function(){
 
 Meteor.publish('searchingRestaurants', function(search){
   check(search, Match.OneOf(String, null, undefined));
-
+  
   let query = {};
 
   if(search){
     regex = new RegExp(search, 'i');
-
     query = {name:regex};
   }
 
   return Restaurants.find(query, {sort:{name:1}});
-
-
 });

@@ -114,7 +114,7 @@ Meteor.startup(() => {
       },
       {
         name : "Subway",
-        banner_img_url : "/images/subway.png",
+        banner_img_url : "/images/subway.jpg",
         min_total : 150,
         delivery_time: 60,
         contact_info : {
